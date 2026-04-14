@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ENGECON - Relatório de Obra</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#f4f4f5",
+                        "on-error": "#ffffff",
+                        "secondary": "#FF9200",
+                        "background": "#f4f4f5",
+                        "tertiary": "#000033",
+                        "navy-dark": "#000033",
+                        "on-surface": "#1a1c1d",
+                        "primary": "#0000EF",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f3f3f5",
+                        "on-primary": "#ffffff",
+                        "outline": "#777682",
+                        "surface-container-high": "#e8e8ea",
+                        "error": "#ba1a1a",
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; background-color: #f4f4f5; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+        
+        /* Industrial Scrollbar Style */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #000033;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #FF9200;
+        }
+        
+        .active-nav-item {
+            background: rgba(255, 255, 255, 0.08);
+            border-left: 4px solid #FF9200;
+            color: white !important;
+            font-weight: 700;
+        }
+
+        .max-w-ultrawide {
+            max-width: 100%;
+            margin: 0;
+        }
+        
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
+</head>
+<body class="flex min-h-screen text-on-surface overflow-hidden bg-background">
+<!-- SIDE BAR NAVIGATION -->
+<aside class="flex flex-col h-screen fixed left-0 top-0 z-50 w-[260px] border-r border-white/5 bg-[#000033]" style="background-color: #000033;">
+<div class="p-8 flex flex-col items-center text-center">
+<div class="mb-1">
+<a href="../index.html" class="text-[28px] font-black text-white font-manrope tracking-tight hover:opacity-80 transition-opacity">ENGECON</a>
+</div>
+<p class="text-white/60 text-[10px] font-bold tracking-[0.15em] uppercase">GESTÃO DE REFORMAS</p>
+<div class="w-full h-[2px] bg-white/20 mt-8"></div>
+</div>
+<nav class="mt-2 flex-1 px-0 space-y-1 overflow-y-auto custom-scrollbar">
+<a class="flex items-center px-8 py-4 text-white/50 hover:text-white hover:bg-white/5 font-manrope text-[13px] font-medium transition-all" href="../resumo_geral_cadastro_de_equipe_nos_boxes/code.html"><span class="material-symbols-outlined mr-4 text-xl">grid_view</span> Resumo Geral</a>
+<a class="flex items-center px-8 py-4 text-white/50 hover:text-white hover:bg-white/5 font-manrope text-[13px] font-medium transition-all" href="../movimenta_es_vers_o_final_limpa/code.html"><span class="material-symbols-outlined mr-4 text-xl">sync_alt</span> Movimentações</a>
+<a class="flex items-center px-8 py-4 text-white/50 hover:text-white hover:bg-white/5 font-manrope text-[13px] font-medium transition-all" href="../controle_de_estoque_financeiro_com_coluna_editor/code.html"><span class="material-symbols-outlined mr-4 text-xl">inventory_2</span> Estoque</a>
+<a class="flex items-center px-8 py-4 text-white/50 hover:text-white hover:bg-white/5 font-manrope text-[13px] font-medium transition-all" href="../relat_rio_de_obra_menu_lateral_refinado_final_v2/code.html"><span class="material-symbols-outlined mr-4 text-xl">apartment</span> Obras/Depósitos</a>
+<a class="flex items-center px-8 py-4 text-white/50 hover:text-white hover:bg-white/5 font-manrope text-[13px] font-medium transition-all" href="../registro_de_equipe_cor_de_indicador_ajustada/code.html"><span class="material-symbols-outlined mr-4 text-xl">person</span> Usuários</a>
+<a class="flex items-center px-8 py-4 text-white/50 hover:text-white hover:bg-white/5 font-manrope text-[13px] font-medium transition-all" href="../listagem_de_colaboradores_rolagem_ajustada_v2/code.html"><span class="material-symbols-outlined mr-4 text-xl">shopping_cart</span> Compras</a>
+<a class="flex items-center px-8 py-4 active-nav-item font-manrope text-[13px]" href="../relat_rio_de_obra_menu_lateral_refinado_final_v2/code.html"><span class="material-symbols-outlined mr-4 text-xl text-white">bar_chart</span> Relatórios</a>
+<a class="flex items-center px-8 py-4 text-white/50 hover:text-white hover:bg-white/5 font-manrope text-[13px] font-medium transition-all" href="../configura_es_sincroniza_o_visual_absoluta/code.html"><span class="material-symbols-outlined mr-4 text-xl">settings</span> Configurações</a>
+</nav>
+<div class="p-8">
+<div class="w-full h-px bg-white/10 mb-8"></div>
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-4">
+<div class="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-[13px] font-black text-white shadow-lg shadow-secondary/20">
+                    JP
+                </div>
+<div class="flex-1 min-w-0 text-left">
+<p class="text-[13px] font-bold text-white leading-tight">João Pereira</p>
+<p class="text-[9px] text-white/40 uppercase tracking-tight">GESTOR DE OBRAS</p>
+</div>
+</div>
+<button class="text-white/30 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-xl">logout</span>
+</button>
+</div>
+</div>
+</aside>
+<!-- MAIN CANVAS -->
+<main class="ml-[260px] flex-1 flex flex-col h-screen overflow-hidden">
+<!-- Header -->
+<header class="flex justify-between items-center h-20 px-8 sticky top-0 z-40 bg-white border-b border-surface-container-high shrink-0">
+<div class="flex items-center flex-1 max-w-full gap-4">
+<button class="flex items-center justify-center gap-2 px-4 py-2 h-10 bg-primary text-white text-[11px] font-black rounded-md hover:bg-primary/90 transition-all uppercase tracking-wider">
+<span class="material-symbols-outlined text-lg">domain</span>
+                Trocar Obra
+            </button>
+<!-- Date Range Selectors -->
+<div class="flex items-center gap-3">
+<div class="flex flex-col">
+<label class="text-[9px] font-black text-navy-dark uppercase tracking-widest mb-1 ml-0.5">Início</label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center text-primary pointer-events-none">
+<span class="material-symbols-outlined text-lg">calendar_today</span>
+</span>
+<input class="w-32 h-10 pl-9 pr-2 bg-white border border-outline/20 rounded-md text-[11px] font-bold text-primary focus:ring-1 focus:ring-primary/20 transition-all cursor-pointer" readonly="" type="text" value="dd / mm / aa"/>
+</div>
+</div>
+<div class="flex flex-col">
+<label class="text-[9px] font-black text-navy-dark uppercase tracking-widest mb-1 ml-0.5">Fim</label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center text-primary pointer-events-none">
+<span class="material-symbols-outlined text-lg">calendar_today</span>
+</span>
+<input class="w-32 h-10 pl-9 pr-2 bg-white border border-outline/20 rounded-md text-[11px] font-bold text-primary focus:ring-1 focus:ring-primary/20 transition-all cursor-pointer" readonly="" type="text" value="dd / mm / aa"/>
+</div>
+</div>
+</div>
+<!-- New Input Group: Valor Total do Contrato -->
+<div class="flex flex-col">
+<label class="text-[9px] font-black text-navy-dark uppercase tracking-widest mb-1 ml-0.5">Valor Total do Contrato</label>
+<div class="flex items-center gap-2">
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center text-navy-dark pointer-events-none font-bold text-[11px]">R$</span>
+<input class="w-40 h-10 pl-9 pr-3 bg-white border border-outline/20 rounded-md text-[11px] font-black text-navy-dark focus:ring-1 focus:ring-primary/20 transition-all" placeholder="0,00" type="text"/>
+</div>
+<button class="flex items-center justify-center h-10 px-4 bg-secondary text-white text-[11px] font-black rounded-md hover:bg-secondary/90 transition-all uppercase tracking-wider whitespace-nowrap">
+                        ATUALIZAR / REGISTRAR
+                    </button>
+</div>
+</div>
+<button class="flex items-center justify-center gap-2 px-4 py-2 h-10 bg-white text-error text-[11px] font-black rounded-md border border-error/20 hover:bg-error/5 transition-all uppercase tracking-wider ml-auto">
+<span class="material-symbols-outlined text-lg">ios_share</span>
+                Baixar/Exportar
+            </button>
+</div>
+<div class="flex items-center space-x-6 ml-6">
+<div class="flex items-center space-x-4">
+<button class="relative p-2 text-outline hover:bg-surface-container transition-colors rounded-full">
+<span class="material-symbols-outlined text-xl">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-1.5 h-1.5 bg-secondary rounded-full"></span>
+</button>
+<button class="p-2 text-outline hover:bg-surface-container transition-colors rounded-full">
+<span class="material-symbols-outlined text-xl">help</span>
+</button>
+</div>
+<div class="h-6 w-px bg-surface-container-high"></div>
+<!-- Profile Section -->
+<div class="flex items-center gap-3">
+<div class="text-right">
+<p class="text-xs font-black text-primary uppercase tracking-tight">João Pereira</p>
+<p class="text-[9px] text-outline uppercase font-bold tracking-tight">Gestor de Obras</p>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center overflow-hidden border border-surface-container-high shadow-sm">
+<img alt="João Pereira" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnj5Ojl7MwQd8II8T25qvlvfXRJY6U2WK4C_b5WFnoeGAXuVvqRT9qLzlWmyNXW5EjzOL4k1fMqrY4-F8dR16INtIW0FiHtSu2eCEwNQsGS-CSIMckscCKqO-8fvcp5r3REBVszc90SdefwARUm2yDWBTLfKC1jjaApQH5LJqwqK1qp_LDI1cIBTKe6YFOfPmbpWZkn6FMczqus6ITwnX4dTnoAkeFTffhDV8wuY1paZSzoHaHqRrtOhMHGP3D_4lONbGem0Vq9Q"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Dashboard Body -->
+<div class="px-8 pt-8 flex-1 flex flex-col overflow-hidden max-w-ultrawide">
+<div class="mb-8 flex justify-between items-end">
+<div>
+<h1 class="text-2xl font-black tracking-tight text-navy-dark mb-1 uppercase">Relatório de Obra</h1>
+<p class="text-sm text-gray-500 font-medium">Consolidado Financeiro e Controle de Perdas Operacionais</p>
+</div>
+<div class="text-right">
+<p class="text-[10px] font-black text-outline uppercase tracking-[0.2em] mb-1">Canteiro de Obras Ativo</p>
+<div class="flex items-center gap-2 text-navy-dark">
+<span class="material-symbols-outlined text-lg">location_city</span>
+<span class="text-sm font-extrabold uppercase tracking-tight">EDIFÍCIO HORIZONTE II - TORRE SUL CENTRAL</span>
+</div>
+</div>
+</div>
+<!-- KPI Cards -->
+<div class="grid grid-cols-5 gap-6 mb-8 shrink-0">
+<div class="bg-navy-dark p-6 rounded-xl shadow-lg flex flex-col justify-between border-l-4 border-emerald-500">
+<span class="text-[10px] font-bold text-white/50 uppercase tracking-[0.2em] mb-4">Valor Mão de Obra</span>
+<div>
+<span class="text-emerald-400 text-3xl font-extrabold tracking-tighter">R$ 142.500,00</span>
+<div class="text-[10px] text-emerald-400/60 mt-1 font-bold uppercase">↑ 12% vs Mês Anterior</div>
+</div>
+</div>
+<div class="bg-navy-dark p-6 rounded-xl shadow-lg flex flex-col justify-between border-l-4 border-red-500">
+<span class="text-[10px] font-bold text-white/50 uppercase tracking-[0.2em] mb-4">Custo Total</span>
+<div>
+<span class="text-red-500 text-3xl font-extrabold tracking-tighter">R$ 385.220,15</span>
+<div class="text-[10px] text-red-500/60 mt-1 font-bold uppercase">↑ 4.2% Dentro da Margem</div>
+</div>
+</div>
+<div class="bg-navy-dark p-6 rounded-xl shadow-lg flex flex-col justify-between border-l-4 border-yellow-500">
+<span class="text-[10px] font-bold text-white/50 uppercase tracking-[0.2em] mb-4">Impostos</span>
+<div>
+<span class="text-yellow-500 text-3xl font-extrabold tracking-tighter">R$ 42.118,40</span>
+<div class="text-[10px] text-yellow-500/60 mt-1 font-bold uppercase">Calculado sobre Faturamento</div>
+</div>
+</div>
+<div class="bg-navy-dark p-6 rounded-xl shadow-lg flex flex-col justify-between border-l-4 border-secondary">
+<span class="text-[10px] font-bold text-white/50 uppercase tracking-[0.2em] mb-4">Lucro Líquido</span>
+<div>
+<span class="text-secondary text-3xl font-extrabold tracking-tighter drop-shadow-[0_0_8px_rgba(255,146,0,0.4)]">R$ 189.650,45</span>
+<div class="text-[10px] text-secondary/60 mt-1 font-bold uppercase">Margem de 33% do Contrato</div>
+</div>
+</div>
+<div class="bg-[#5c1c1c] p-6 rounded-xl shadow-lg flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-0 right-0 p-2 opacity-10">
+<span class="material-symbols-outlined text-white text-6xl">trending_down</span>
+</div>
+<span class="text-[10px] font-bold text-white/70 uppercase tracking-[0.2em] mb-4">Quantidade de Perdas</span>
+<div>
+<span class="text-white text-3xl font-extrabold tracking-tighter">R$ 14.205,00</span>
+<div class="text-[10px] text-white/60 mt-1 font-bold uppercase">Resíduo de Material e Retrabalho</div>
+</div>
+</div>
+</div>
+<!-- Table Section -->
+<div class="bg-white rounded-xl border border-surface-container-high shadow-sm flex-1 flex flex-col mb-8 overflow-hidden">
+<!-- Fixed Header -->
+<div class="bg-secondary shrink-0">
+<table class="w-full text-left border-collapse table-fixed">
+<thead>
+<tr class="bg-secondary">
+<th class="px-6 py-4 text-[10px] font-black tracking-[0.15em] text-white uppercase w-1/4">DATA</th>
+<th class="px-6 py-4 text-[10px] font-black tracking-[0.15em] text-white uppercase text-right">Mão de Obra</th>
+<th class="px-6 py-4 text-[10px] font-black tracking-[0.15em] text-white uppercase text-right">Custos</th>
+<th class="px-6 py-4 text-[10px] font-black tracking-[0.15em] text-white uppercase text-right">Impostos</th>
+<th class="px-6 py-4 text-[10px] font-black tracking-[0.15em] text-white uppercase text-right">Perdas</th>
+<th class="px-6 py-4 text-[10px] font-black tracking-[0.15em] text-white uppercase text-right">Lucro</th>
+<th class="px-6 py-4 text-[10px] font-black tracking-[0.15em] text-white uppercase text-center w-32">Status</th>
+</tr>
+</thead>
+</table>
+</div>
+<!-- Scrollable Body - 14 rows -->
+<div class="flex-1 overflow-y-auto custom-scrollbar">
+<table class="w-full text-left border-collapse table-fixed">
+<tbody class="divide-y divide-surface-container-high text-[11px] font-bold text-gray-600 font-manrope">
+<tr class="hover:bg-surface-container-low/30 transition-colors">
+<td class="px-6 py-4 font-black text-navy-dark w-1/4">Janeiro/2024</td>
+<td class="px-6 py-4 text-right">R$ 32.400,00</td>
+<td class="px-6 py-4 text-right text-red-600">R$ 88.200,00</td>
+<td class="px-6 py-4 text-right">R$ 10.150,00</td>
+<td class="px-6 py-4 text-right text-red-500 font-black">R$ 2.450,00</td>
+<td class="px-6 py-4 text-right font-black text-secondary">R$ 44.200,00</td>
+<td class="px-6 py-4 text-center w-32">
+<span class="inline-flex items-center px-2 py-0.5 rounded-sm bg-emerald-50 text-emerald-700 font-black border-l-2 border-emerald-600 uppercase text-[9px]">Fechado</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/30 transition-colors">
+<td class="px-6 py-4 font-black text-navy-dark w-1/4">Fevereiro/2024</td>
+<td class="px-6 py-4 text-right">R$ 28.900,00</td>
+<td class="px-6 py-4 text-right text-red-600">R$ 94.150,00</td>
+<td class="px-6 py-4 text-right">R$ 9.800,00</td>
+<td class="px-6 py-4 text-right text-red-500 font-black">R$ 3.120,00</td>
+<td class="px-6 py-4 text-right font-black text-secondary">R$ 38.450,00</td>
+<td class="px-6 py-4 text-center w-32">
+<span class="inline-flex items-center px-2 py-0.5 rounded-sm bg-emerald-50 text-emerald-700 font-black border-l-2 border-emerald-600 uppercase text-[9px]">Fechado</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/30 transition-colors">
+<td class="px-6 py-4 font-black text-navy-dark w-1/4">Março/2024</td>
+<td class="px-6 py-4 text-right">R$ 41.200,00</td>
+<td class="px-6 py-4 text-right text-red-600">R$ 102.870,15</td>
+<td class="px-6 py-4 text-right">R$ 11.268,40</td>
+<td class="px-6 py-4 text-right text-red-500 font-black">R$ 4.435,00</td>
+<td class="px-6 py-4 text-right font-black text-secondary">R$ 52.000,45</td>
+<td class="px-6 py-4 text-center w-32">
+<span class="inline-flex items-center px-2 py-0.5 rounded-sm bg-emerald-50 text-emerald-700 font-black border-l-2 border-emerald-600 uppercase text-[9px]">Fechado</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/30 transition-colors">
+<td class="px-6 py-4 font-black text-navy-dark w-1/4">Abril/2024</td>
+<td class="px-6 py-4 text-right">R$ 40.000,00</td>
+<td class="px-6 py-4 text-right text-red-600">R$ 100.000,00</td>
+<td class="px-6 py-4 text-right">R$ 10.900,00</td>
+<td class="px-6 py-4 text-right text-red-500 font-black">R$ 4.200,00</td>
+<td class="px-6 py-4 text-right font-black text-secondary">R$ 55.000,00</td>
+<td class="px-6 py-4 text-center w-32">
+<span class="inline-flex items-center px-2 py-0.5 rounded-sm bg-yellow-50 text-yellow-700 font-black border-l-2 border-yellow-600 uppercase text-[9px]">Em Aberto</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/30 transition-colors">
+<td class="px-6 py-4 font-black text-navy-dark w-1/4">Maio/2024 (Previsão)</td>
+<td class="px-6 py-4 text-right">R$ 38.500,00</td>
+<td class="px-6 py-4 text-right text-red-600">R$ 95.000,00</td>
+<td class="px-6 py-4 text-right">R$ 9.500,00</td>
+<td class="px-6 py-4 text-right text-red-500 font-black">R$ 3.500,00</td>
+<td class="px-6 py-4 text-right font-black text-secondary">R$ --</td>
+<td class="px-6 py-4 text-center w-32">
+<span class="inline-flex items-center px-2 py-0.5 rounded-sm bg-blue-50 text-blue-700 font-black border-l-2 border-blue-600 uppercase text-[9px]">Planejado</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/30 transition-colors">
+<td class="px-6 py-4 font-black text-navy-dark w-1/4">Junho/2024 (Previsão)</td>
+<td class="px-6 py-4 text-right">R$ --</td>
+<td class="px-6 py-4 text-right text-red-600">R$ --</td>
+<td class="px-6 py-4 text-right">R$ --</td>
+<td class="px-6 py-4 text-right text-red-500 font-black">R$ --</td>
+<td class="px-6 py-4 text-right font-black text-secondary">R$ --</td>
+<td class="px-6 py-4 text-center w-32">
+<span class="inline-flex items-center px-2 py-0.5 rounded-sm bg-gray-50 text-gray-500 font-black border-l-2 border-gray-400 uppercase text-[9px]">SEM DADOS</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/30 transition-colors">
+<td class="px-6 py-4 font-black text-navy-dark w-1/4">Julho/2024</td>
+<td class="px-6 py-4 text-right">R$ --</td>
+<td class="px-6 py-4 text-right text-red-600">R$ --</td>
+<td class="px-6 py-4 text-right">R$ --</td>
+<td class="px-6 py-4 text-right text-red-500 font-black">R$ --</td>
+<td class="px-6 py-4 text-right font-black text-secondary">R$ --</td>
+<td class="px-6 py-4 text-center w-32">
+<span class="inline-flex items-center px-2 py-0.5 rounded-sm bg-gray-50 text-gray-500 font-black border-l-2 border-gray-400 uppercase text-[9px]">SEM DADOS</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/30 transition-colors">
+<td class="px-6 py-4 font-black text-navy-dark w-1/4">Agosto/2024</td>
+<td class="px-6 py-4 text-right">R$ --</td>
+<td class="px-6 py-4 text-right text-red-600">R$ --</td>
+<td class="px-6 py-4 text-right">R$ --</td>
+<td class="px-6 py-4 text-right text-red-500 font-black">R$ --</td>
+<td class="px-6 py-4 text-right font-black text-secondary">R$ --</td>
+<td class="px-6 py-4 text-center w-32">
+<span class="inline-flex items-center px-2 py-0.5 rounded-sm bg-gray-50 text-gray-500 font-black border-l-2 border-gray-400 uppercase text-[9px]">SEM DADOS</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/30 transition-colors">
+<td class="px-6 py-4 font-black text-navy-dark w-1/4">Setembro/2024</td>
+<td class="px-6 py-4 text-right">R$ --</td>
+<td class="px-6 py-4 text-right text-red-600">R$ --</td>
+<td class="px-6 py-4 text-right">R$ --</td>
+<td class="px-6 py-4 text-right text-red-500 font-black">R$ --</td>
+<td class="px-6 py-4 text-right font-black text-secondary">R$ --</td>
+<td class="px-6 py-4 text-center w-32">
+<span class="inline-flex items-center px-2 py-0.5 rounded-sm bg-gray-50 text-gray-500 font-black border-l-2 border-gray-400 uppercase text-[9px]">SEM DADOS</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/30 transition-colors">
+<td class="px-6 py-4 font-black text-navy-dark w-1/4">Outubro/2024</td>
+<td class="px-6 py-4 text-right">R$ --</td>
+<td class="px-6 py-4 text-right text-red-600">R$ --</td>
+<td class="px-6 py-4 text-right">R$ --</td>
+<td class="px-6 py-4 text-right text-red-500 font-black">R$ --</td>
+<td class="px-6 py-4 text-right font-black text-secondary">R$ --</td>
+<td class="px-6 py-4 text-center w-32">
+<span class="inline-flex items-center px-2 py-0.5 rounded-sm bg-gray-50 text-gray-500 font-black border-l-2 border-gray-400 uppercase text-[9px]">SEM DADOS</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/30 transition-colors">
+<td class="px-6 py-4 font-black text-navy-dark w-1/4">Novembro/2024</td>
+<td class="px-6 py-4 text-right">R$ --</td>
+<td class="px-6 py-4 text-right text-red-600">R$ --</td>
+<td class="px-6 py-4 text-right">R$ --</td>
+<td class="px-6 py-4 text-right text-red-500 font-black">R$ --</td>
+<td class="px-6 py-4 text-right font-black text-secondary">R$ --</td>
+<td class="px-6 py-4 text-center w-32">
+<span class="inline-flex items-center px-2 py-0.5 rounded-sm bg-gray-50 text-gray-500 font-black border-l-2 border-gray-400 uppercase text-[9px]">SEM DADOS</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/30 transition-colors">
+<td class="px-6 py-4 font-black text-navy-dark w-1/4">Dezembro/2024</td>
+<td class="px-6 py-4 text-right">R$ --</td>
+<td class="px-6 py-4 text-right text-red-600">R$ --</td>
+<td class="px-6 py-4 text-right">R$ --</td>
+<td class="px-6 py-4 text-right text-red-500 font-black">R$ --</td>
+<td class="px-6 py-4 text-right font-black text-secondary">R$ --</td>
+<td class="px-6 py-4 text-center w-32">
+<span class="inline-flex items-center px-2 py-0.5 rounded-sm bg-gray-50 text-gray-500 font-black border-l-2 border-gray-400 uppercase text-[9px]">SEM DADOS</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/30 transition-colors">
+<td class="px-6 py-4 font-black text-navy-dark w-1/4">Janeiro/2025</td>
+<td class="px-6 py-4 text-right">R$ --</td>
+<td class="px-6 py-4 text-right text-red-600">R$ --</td>
+<td class="px-6 py-4 text-right">R$ --</td>
+<td class="px-6 py-4 text-right text-red-500 font-black">R$ --</td>
+<td class="px-6 py-4 text-right font-black text-secondary">R$ --</td>
+<td class="px-6 py-4 text-center w-32">
+<span class="inline-flex items-center px-2 py-0.5 rounded-sm bg-gray-50 text-gray-500 font-black border-l-2 border-gray-400 uppercase text-[9px]">SEM DADOS</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/30 transition-colors">
+<td class="px-6 py-4 font-black text-navy-dark w-1/4">Fevereiro/2025</td>
+<td class="px-6 py-4 text-right">R$ --</td>
+<td class="px-6 py-4 text-right text-red-600">R$ --</td>
+<td class="px-6 py-4 text-right">R$ --</td>
+<td class="px-6 py-4 text-right text-red-500 font-black">R$ --</td>
+<td class="px-6 py-4 text-right font-black text-secondary">R$ --</td>
+<td class="px-6 py-4 text-center w-32">
+<span class="inline-flex items-center px-2 py-0.5 rounded-sm bg-gray-50 text-gray-500 font-black border-l-2 border-gray-400 uppercase text-[9px]">SEM DADOS</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Space for Footer-less Clean finish -->
+<div class="h-8 shrink-0"></div>
+</div>
+</main>
+</body></html>

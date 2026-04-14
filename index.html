@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>ENGECON - Gestão de Reformas</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-background": "#1a1c1d",
+                        "surface": "#f9f9fb",
+                        "secondary": "#9a4600",
+                        "primary": "#030063",
+                        "inverse-surface": "#2f3132",
+                        "surface-dim": "#d9dadc",
+                        "tertiary-container": "#3f0301",
+                        "on-surface": "#1a1c1d",
+                        "surface-bright": "#f9f9fb",
+                        "tertiary-fixed-dim": "#ffb4a7",
+                        "on-primary-fixed": "#070666",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#5256aa",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#000000",
+                        "primary-container": "#070666",
+                        "inverse-on-surface": "#f0f0f2",
+                        "on-secondary-fixed": "#321200",
+                        "on-tertiary-container": "#c7695a",
+                        "on-surface-variant": "#464651",
+                        "on-tertiary-fixed": "#3f0301",
+                        "on-primary-fixed-variant": "#393d90",
+                        "on-secondary-fixed-variant": "#753400",
+                        "inverse-primary": "#c0c1ff",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#e8e8ea",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#ffdbc9",
+                        "on-secondary-container": "#6d3000",
+                        "background": "#f9f9fb",
+                        "outline-variant": "#c7c5d3",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed": "#ffdad4",
+                        "secondary-container": "#fe924e",
+                        "surface-container-highest": "#e2e2e4",
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#c0c1ff",
+                        "surface-variant": "#e2e2e4",
+                        "secondary-fixed-dim": "#ffb68c",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#777cd3",
+                        "surface-container": "#eeeef0",
+                        "primary-fixed": "#e1e0ff",
+                        "surface-container-low": "#f3f3f5",
+                        "on-tertiary-fixed-variant": "#7a2e23",
+                        "outline": "#777682",
+                        "navy-deep": "#030030",
+                        "navy-sidebar": "#030030"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Manrope', sans-serif; }
+        
+        .bg-navy-deep {
+            background-color: #030030;
+        }
+        .sidebar-active {
+            background-color: rgba(255, 255, 255, 0.08);
+            color: #ffffff;
+            font-weight: 700;
+            border-left: 4px solid #FF9200;
+        }
+        .btn-shadow {
+            box-shadow: 0 10px 25px -5px rgba(255, 140, 0, 0.4);
+        }
+        .architectural-gradient {
+            background: linear-gradient(135deg, #0001AC 0%, #070666 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface overflow-hidden">
+<!-- SIDE BAR NAVIGATION -->
+<aside class="flex flex-col h-screen fixed left-0 top-0 w-64 bg-navy-deep z-50 transition-all duration-200 ease-in-out">
+    <div class="pt-10 pb-6 flex flex-col items-center">
+        <div class="mb-1 text-center">
+            <a href="index.html" class="text-3xl font-black text-white font-manrope tracking-tighter hover:opacity-80 transition-opacity">ENGECON</a>
+        </div>
+        <p class="text-white/40 text-[10px] font-bold tracking-[0.2em] uppercase text-center">GESTÃO DE REFORMAS</p>
+        <div class="w-48 h-[1px] bg-white mt-8 opacity-30"></div>
+    </div>
+    <nav class="mt-4 flex-1 space-y-1 overflow-y-auto">
+        <a class="flex items-center px-8 py-4 text-white/60 hover:text-white hover:bg-white/5 font-manrope text-sm font-medium transition-all duration-200 ease-in-out" href="resumo_geral_cadastro_de_equipe_nos_boxes/code.html">
+            <span class="material-symbols-outlined mr-4 text-2xl">dashboard</span>
+            Resumo Geral
+        </a>
+        <a class="flex items-center px-8 py-4 text-white/60 hover:text-white hover:bg-white/5 font-manrope text-sm font-medium transition-all duration-200 ease-in-out" href="movimenta_es_vers_o_final_limpa/code.html">
+            <span class="material-symbols-outlined mr-4 text-2xl">swap_horiz</span>
+            Movimentações
+        </a>
+        <a class="flex items-center px-8 py-4 text-white/60 hover:text-white hover:bg-white/5 font-manrope text-sm font-medium transition-all duration-200 ease-in-out" href="controle_de_estoque_financeiro_com_coluna_editor/code.html">
+            <span class="material-symbols-outlined mr-4 text-2xl">inventory_2</span>
+            Estoque
+        </a>
+        <a class="flex items-center px-8 py-4 text-white/60 hover:text-white hover:bg-white/5 font-manrope text-sm font-medium transition-all duration-200 ease-in-out" href="relat_rio_de_obra_menu_lateral_refinado_final_v2/code.html">
+            <span class="material-symbols-outlined mr-4 text-2xl">domain</span>
+            Obras
+        </a>
+        <a class="flex items-center px-8 py-4 text-white/60 hover:text-white hover:bg-white/5 font-manrope text-sm font-medium transition-all duration-200 ease-in-out" href="registro_de_equipe_cor_de_indicador_ajustada/code.html">
+            <span class="material-symbols-outlined mr-4 text-2xl">group</span> 
+            Usuários
+        </a>
+        <a class="flex items-center px-8 py-4 text-white/60 hover:text-white hover:bg-white/5 font-manrope text-sm font-medium transition-all duration-200 ease-in-out" href="listagem_de_colaboradores_rolagem_ajustada_v2/code.html">
+            <span class="material-symbols-outlined mr-4 text-2xl">shopping_cart</span>
+            Compras
+        </a>
+        <a class="flex items-center px-8 py-4 text-white/60 hover:text-white hover:bg-white/5 font-manrope text-sm font-medium transition-all duration-200 ease-in-out" href="#">
+            <span class="material-symbols-outlined mr-4 text-2xl">assessment</span>
+            Relatórios
+        </a>
+        <a class="flex items-center px-8 py-4 text-white/60 hover:text-white hover:bg-white/5 font-manrope text-sm font-medium transition-all duration-200 ease-in-out" href="configura_es_sincroniza_o_visual_absoluta/code.html">
+            <span class="material-symbols-outlined mr-4 text-2xl">settings</span>
+            Configurações
+        </a>
+    </nav>
+    <div class="px-6 py-8">
+        <div class="w-full h-px bg-white/10 mb-8"></div>
+        <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-full bg-[#FF9200] flex items-center justify-center text-xs font-black text-white">
+                    JP
+                </div>
+                <div class="flex-1 min-w-0">
+                    <p class="text-sm font-bold text-white truncate">João Pereira</p>
+                    <p class="text-[10px] text-white/40 uppercase tracking-tighter truncate">GESTOR DE OBRAS</p>
+                </div>
+            </div>
+            <button class="text-white/40 hover:text-white transition-colors">
+                <span class="material-symbols-outlined text-lg">logout</span>
+            </button>
+        </div>
+    </div>
+</aside>
+
+<!-- Main Content -->
+<main class="ml-64 px-12 pb-12 h-screen overflow-y-auto max-w-[2560px] pt-12">
+    <!-- Welcome Section -->
+    <div class="mb-12">
+        <h1 class="text-4xl font-black text-primary mb-2">Bem-vindo ao ENGECON</h1>
+        <p class="text-on-surface/60 text-lg">Sistema de Gestão de Reformas Prediais</p>
+    </div>
+
+    <!-- Main Cards Grid -->
+    <div class="grid grid-cols-12 gap-8">
+        <!-- Dashboard Card -->
+        <a href="resumo_geral_cadastro_de_equipe_nos_boxes/code.html" class="col-span-12 md:col-span-4 bg-surface-container-low rounded-xl p-8 hover:shadow-lg transition-all group cursor-pointer border border-outline/10 hover:border-secondary/30">
+            <div class="mb-4 p-3 bg-secondary-container rounded-lg w-fit group-hover:scale-110 transition-transform">
+                <span class="material-symbols-outlined text-white text-2xl">dashboard</span>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Resumo Geral</h3>
+            <p class="text-on-surface/60 text-sm">Visualize o panorama completo de todas as operações</p>
+        </a>
+
+        <!-- Movimentações Card -->
+        <a href="movimenta_es_vers_o_final_limpa/code.html" class="col-span-12 md:col-span-4 bg-surface-container-low rounded-xl p-8 hover:shadow-lg transition-all group cursor-pointer border border-outline/10 hover:border-secondary/30">
+            <div class="mb-4 p-3 bg-secondary-container rounded-lg w-fit group-hover:scale-110 transition-transform">
+                <span class="material-symbols-outlined text-white text-2xl">swap_horiz</span>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Movimentações</h3>
+            <p class="text-on-surface/60 text-sm">Acompanhe todas as movimentações do sistema</p>
+        </a>
+
+        <!-- Estoque Card -->
+        <a href="controle_de_estoque_financeiro_com_coluna_editor/code.html" class="col-span-12 md:col-span-4 bg-surface-container-low rounded-xl p-8 hover:shadow-lg transition-all group cursor-pointer border border-outline/10 hover:border-secondary/30">
+            <div class="mb-4 p-3 bg-secondary-container rounded-lg w-fit group-hover:scale-110 transition-transform">
+                <span class="material-symbols-outlined text-white text-2xl">inventory_2</span>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Controle de Estoque</h3>
+            <p class="text-on-surface/60 text-sm">Gerencie o inventário e financeiro de materiais</p>
+        </a>
+
+        <!-- Obras Card -->
+        <a href="relat_rio_de_obra_menu_lateral_refinado_final_v2/code.html" class="col-span-12 md:col-span-4 bg-surface-container-low rounded-xl p-8 hover:shadow-lg transition-all group cursor-pointer border border-outline/10 hover:border-secondary/30">
+            <div class="mb-4 p-3 bg-secondary-container rounded-lg w-fit group-hover:scale-110 transition-transform">
+                <span class="material-symbols-outlined text-white text-2xl">domain</span>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Relatório de Obras</h3>
+            <p class="text-on-surface/60 text-sm">Acompanhe o status de todas as obras</p>
+        </a>
+
+        <!-- Usuários Card -->
+        <a href="registro_de_equipe_cor_de_indicador_ajustada/code.html" class="col-span-12 md:col-span-4 bg-surface-container-low rounded-xl p-8 hover:shadow-lg transition-all group cursor-pointer border border-outline/10 hover:border-secondary/30">
+            <div class="mb-4 p-3 bg-secondary-container rounded-lg w-fit group-hover:scale-110 transition-transform">
+                <span class="material-symbols-outlined text-white text-2xl">group</span>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Registro de Equipe</h3>
+            <p class="text-on-surface/60 text-sm">Gerencie usuários e equipes do sistema</p>
+        </a>
+
+        <!-- Colaboradores Card -->
+        <a href="listagem_de_colaboradores_rolagem_ajustada_v2/code.html" class="col-span-12 md:col-span-4 bg-surface-container-low rounded-xl p-8 hover:shadow-lg transition-all group cursor-pointer border border-outline/10 hover:border-secondary/30">
+            <div class="mb-4 p-3 bg-secondary-container rounded-lg w-fit group-hover:scale-110 transition-transform">
+                <span class="material-symbols-outlined text-white text-2xl">people</span>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Colaboradores</h3>
+            <p class="text-on-surface/60 text-sm">Lista completa de colaboradores com rolagem ajustada</p>
+        </a>
+
+        <!-- Configurações Card -->
+        <a href="configura_es_sincroniza_o_visual_absoluta/code.html" class="col-span-12 md:col-span-4 bg-surface-container-low rounded-xl p-8 hover:shadow-lg transition-all group cursor-pointer border border-outline/10 hover:border-secondary/30">
+            <div class="mb-4 p-3 bg-secondary-container rounded-lg w-fit group-hover:scale-110 transition-transform">
+                <span class="material-symbols-outlined text-white text-2xl">settings</span>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Configurações</h3>
+            <p class="text-on-surface/60 text-sm">Sincronize e ajuste as configurações do sistema</p>
+        </a>
+
+        <!-- Login Card -->
+        <a href="portal_de_login_engecon_vers_o_final_limpa/code.html" class="col-span-12 md:col-span-4 bg-surface-container-low rounded-xl p-8 hover:shadow-lg transition-all group cursor-pointer border border-outline/10 hover:border-secondary/30">
+            <div class="mb-4 p-3 bg-primary rounded-lg w-fit group-hover:scale-110 transition-transform">
+                <span class="material-symbols-outlined text-white text-2xl">login</span>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Portal de Login</h3>
+            <p class="text-on-surface/60 text-sm">Acesse o portal de login do ENGECON</p>
+        </a>
+    </div>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Engecon Warehouse - Movimentações</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .sidebar-active {
+            background-color: rgba(255, 255, 255, 0.08);
+            color: #ffffff;
+            font-weight: 700;
+            border-left: 3px solid #FF9200;
+        }
+        ::-webkit-scrollbar { width: 4px; height: 4px; }
+        ::-webkit-scrollbar-track { background: #f3f3f5; }
+        ::-webkit-scrollbar-thumb { background: #d9dadc; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #777682; }
+        
+        /* Updated to Midnight Navy Blue #000033 */
+        .bg-card-blue, .bg-sidebar-blue {
+            background-color: #000033;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#0000EF",
+                "secondary": "#FF9200",
+                "on-primary-container": "#777cd3",
+                "error-container": "#ffdad6",
+                "on-error": "#ffffff",
+                "on-secondary": "#ffffff",
+                "outline-variant": "#c7c5d3",
+                "on-error-container": "#93000a",
+                "on-tertiary": "#ffffff",
+                "inverse-surface": "#2f3132",
+                "on-secondary-container": "#6d3000",
+                "surface-tint": "#5256aa",
+                "surface-bright": "#f9f9fb",
+                "inverse-primary": "#c0c1ff",
+                "tertiary": "#000000",
+                "on-surface": "#1a1c1d",
+                "tertiary-container": "#3f0301",
+                "surface-variant": "#e2e2e4",
+                "inverse-on-surface": "#f0f0f2",
+                "primary-container": "#0000EF",
+                "surface-container-low": "#f3f3f5",
+                "on-background": "#1a1c1d",
+                "error": "#ba1a1a",
+                "secondary-container": "#FF9200",
+                "surface-dim": "#d9dadc",
+                "surface-container-lowest": "#ffffff",
+                "surface-container": "#eeeef0",
+                "background": "#f4f4f5",
+                "on-primary": "#ffffff",
+                "surface-container-highest": "#e2e2e4",
+                "surface-container-high": "#e8e8ea",
+                "surface": "#f4f4f5",
+                "outline": "#777682",
+                "on-surface-variant": "#464651",
+              },
+              fontFamily: {
+                "headline": ["Manrope"],
+                "body": ["Manrope"],
+                "label": ["Manrope"]
+              },
+              borderRadius: {"DEFAULT": "0.125rem", "lg": "0.5rem", "xl": "0.75rem", "full": "1rem"},
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background font-body text-on-surface selection:bg-secondary-container/30">
+<!-- SIDE BAR NAVIGATION -->
+<aside class="flex flex-col h-screen fixed left-0 top-0 w-64 bg-sidebar-blue z-50 transition-all duration-200 ease-in-out border-r border-white/5">
+<div class="p-8 flex flex-col items-center">
+<div class="mb-1 text-center">
+<a href="../index.html" class="text-3xl font-black text-white font-manrope tracking-tighter hover:opacity-80 transition-opacity">ENGECON</a>
+</div>
+<p class="text-white/40 text-[10px] font-bold tracking-[0.2em] uppercase text-center">GESTÃO DE REFORMAS</p>
+<div class="w-full h-[1px] bg-white mt-4"></div>
+</div>
+<nav class="mt-2 flex-1 px-4 space-y-1 overflow-y-auto">
+<a class="flex items-center px-4 py-3 text-white/60 hover:text-white hover:bg-white/5 font-manrope text-sm font-medium transition-all duration-200 ease-in-out" href="../resumo_geral_cadastro_de_equipe_nos_boxes/code.html">
+<span class="material-symbols-outlined mr-4 text-2xl">dashboard</span>
+            Resumo Geral
+        </a>
+<a class="flex items-center px-4 py-3 sidebar-active text-white font-manrope text-sm tracking-wide" href="../movimenta_es_vers_o_final_limpa/code.html">
+<span class="material-symbols-outlined mr-4 text-2xl">swap_horiz</span>
+            Movimentações
+        </a>
+<a class="flex items-center px-4 py-3 text-white/60 hover:text-white hover:bg-white/5 font-manrope text-sm font-medium transition-all duration-200 ease-in-out" href="../controle_de_estoque_financeiro_com_coluna_editor/code.html">
+<span class="material-symbols-outlined mr-4 text-2xl">inventory_2</span>
+            Estoque
+        </a>
+<a class="flex items-center px-4 py-3 text-white/60 hover:text-white hover:bg-white/5 font-manrope text-sm font-medium transition-all duration-200 ease-in-out" href="../relat_rio_de_obra_menu_lateral_refinado_final_v2/code.html">
+<span class="material-symbols-outlined mr-4 text-2xl">domain</span>
+            Obras/Depósitos
+        </a>
+<a class="flex items-center px-4 py-3 text-white/60 hover:text-white hover:bg-white/5 font-manrope text-sm font-medium transition-all duration-200 ease-in-out" href="../registro_de_equipe_cor_de_indicador_ajustada/code.html"><span class="material-symbols-outlined mr-4 text-2xl">group</span> Usuários</a>
+<a class="flex items-center px-4 py-3 text-white/60 hover:text-white hover:bg-white/5 font-manrope text-sm font-medium transition-all duration-200 ease-in-out" href="../listagem_de_colaboradores_rolagem_ajustada_v2/code.html">
+<span class="material-symbols-outlined mr-4 text-2xl">shopping_cart</span>
+            Compras
+        </a>
+<a class="flex items-center px-4 py-3 text-white/60 hover:text-white hover:bg-white/5 font-manrope text-sm font-medium transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined mr-4 text-2xl">assessment</span>
+            Relatórios
+        </a>
+<a class="flex items-center px-4 py-3 text-white/60 hover:text-white hover:bg-white/5 font-manrope text-sm font-medium transition-all duration-200 ease-in-out" href="../configura_es_sincroniza_o_visual_absoluta/code.html">
+<span class="material-symbols-outlined mr-4 text-2xl">settings</span>
+            Configurações
+        </a>
+</nav>
+<div class="p-6">
+<div class="w-full h-px bg-white/10 mb-6"></div>
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<div class="w-9 h-9 rounded-full bg-secondary flex items-center justify-center text-xs font-black text-white">
+                    JP
+                </div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-bold text-white truncate">João Pereira</p>
+<p class="text-[10px] text-white/40 uppercase tracking-tighter truncate">Gestor de Obras</p>
+</div>
+</div>
+<button class="text-white/40 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-lg">logout</span>
+</button>
+</div>
+</div>
+</aside>
+<!-- MAIN CANVAS -->
+<main class="ml-64 min-h-screen flex flex-col">
+<!-- TOP NAVIGATION BAR -->
+<header class="flex justify-between items-center h-16 px-8 sticky top-0 z-40 bg-white/90 border-b border-surface-container-high shrink-0">
+<div class="flex items-center flex-1 max-w-4xl gap-4">
+<div class="relative w-80">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center text-outline">
+<span class="material-symbols-outlined text-xl">search</span>
+</span>
+<input class="block w-full pl-10 pr-3 py-2 bg-surface-container-low border-none rounded-md text-sm placeholder-outline/60 focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Pesquisar movimentação..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex items-center justify-center gap-2 px-5 py-2 w-44 h-10 bg-white text-primary text-xs font-bold rounded-md border border-primary/10 hover:bg-primary/5 transition-all">
+<span class="material-symbols-outlined text-lg">tune</span>
+                    Filtros Avançados
+                </button>
+<button class="flex items-center justify-center gap-2 px-5 py-2 w-44 h-10 bg-white text-error text-xs font-bold rounded-md border border-error/10 hover:bg-error/5 transition-all">
+<span class="material-symbols-outlined text-lg text-error">download</span>
+                    Baixar/Exportar
+                </button>
+</div>
+<!-- ALIGNED PAGINATION -->
+<div class="flex items-center gap-1 ml-4">
+<button class="w-8 h-8 flex items-center justify-center rounded border border-surface-container-high hover:bg-surface-container text-outline transition-all"><span class="material-symbols-outlined text-sm">chevron_left</span></button>
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 flex items-center justify-center bg-primary text-white text-[10px] font-bold rounded">1</button>
+<button class="px-2 py-1 text-[10px] font-bold hover:bg-surface-container">2</button>
+<button class="px-2 py-1 text-[10px] font-bold hover:bg-surface-container">3</button>
+<span class="text-[10px] text-outline px-1">...</span>
+<button class="px-2 py-1 text-[10px] font-bold hover:bg-surface-container">46</button>
+</div>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-surface-container-high hover:bg-surface-container text-outline transition-all"><span class="material-symbols-outlined text-sm">chevron_right</span></button>
+</div>
+</div>
+<div class="flex items-center space-x-4">
+<button class="relative p-2 text-on-surface-variant hover:bg-surface-container transition-colors rounded-full">
+<span class="material-symbols-outlined text-xl">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-1.5 h-1.5 bg-secondary rounded-full"></span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center bg-secondary text-white hover:bg-secondary/90 transition-all rounded-md shadow-lg shadow-secondary/20">
+<span class="material-symbols-outlined text-2xl font-bold">add</span>
+</button>
+<div class="h-6 w-px bg-surface-container-highest"></div>
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-primary">Engecon Warehouse</span>
+<img alt="User Avatar" class="w-8 h-8 rounded-full border border-surface-container-high object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqQLUVS0S-Gd43fxRRycrlInKAJhfGDTKK6H09SLT58NJplraMyXKAU4EfeVgrki_xZEJBKasjJ83rfl1uDKZi3MPngUy6SGRccER2L1Gng5epamK0cd3ntEVtfthqvtuiclRMudDkfbXohC8rJP3GdxW-SUe0lTii-RusRhxM_rHMGxItZS0Tf4ecERW4sHFJ-aY6JoP6zK64ZvHUVtjkyWgnkLMzGdzyMqegmyKBOqBOjnnVheNNNLCj6mNsKI8vMP8QZldSwg"/>
+</div>
+</div>
+</header>
+<div class="px-8 pt-6 flex-1 flex flex-col space-y-4 overflow-hidden">
+<!-- KPI CARDS -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4 shrink-0">
+<div class="bg-card-blue p-5 rounded-xl flex flex-col h-32 border border-white/5 shadow-md">
+<div class="flex justify-between items-start mb-[-4px]">
+<p class="font-bold text-green-500 uppercase tracking-wider text-xs">ENTRADAS (MÊS)</p>
+<span class="material-symbols-outlined text-green-500 text-4xl">logout</span>
+</div>
+<div>
+<h3 class="text-4xl font-extrabold text-green-500 leading-none">1.284</h3>
+<div class="flex items-center gap-1 mt-2">
+<span class="material-symbols-outlined text-green-500 text-[12px]">trending_up</span>
+<p class="font-medium text-green-500 text-xs">+12.5% vs anterior</p>
+</div>
+</div>
+</div>
+<div class="bg-card-blue p-5 rounded-xl flex flex-col h-32 border border-white/5 shadow-md">
+<div class="flex justify-between items-start mb-[-4px]">
+<p class="font-bold text-red-500 uppercase tracking-wider text-xs">SAÍDAS (MÊS)</p>
+<span class="material-symbols-outlined text-red-500 text-4xl">login</span>
+</div>
+<div>
+<h3 class="text-4xl font-extrabold text-red-500 leading-none">942</h3>
+<div class="flex items-center gap-1 mt-2">
+<span class="material-symbols-outlined text-red-500 text-[12px]">trending_down</span>
+<p class="font-medium text-red-500 text-xs">-2.1% vs anterior</p>
+</div>
+</div>
+</div>
+<div class="bg-card-blue p-5 rounded-xl flex flex-col h-32 border border-white/5 shadow-md">
+<div class="flex justify-between items-start mb-[-4px]">
+<p class="font-bold text-[#FFC107] uppercase tracking-wider text-xs">TRANSFERÊNCIAS (MÊS)</p>
+<span class="material-symbols-outlined text-[#FFC107] text-4xl">sync_alt</span>
+</div>
+<div>
+<h3 class="text-4xl font-extrabold text-[#FFC107] leading-none">456</h3>
+<div class="flex items-center gap-1 mt-2">
+<p class="font-medium text-[#FFC107] text-xs">Fluxo operacional estável</p>
+</div>
+</div>
+</div>
+<div class="bg-secondary p-5 rounded-xl flex flex-col h-32 shadow-lg shadow-secondary/10">
+<div class="flex justify-between items-start mb-[-4px]">
+<p class="font-bold text-white/60 uppercase tracking-wider text-xs">TOTAL MOVIMENTAÇÕES</p>
+<span class="material-symbols-outlined text-white text-4xl">receipt_long</span>
+</div>
+<div>
+<h3 class="text-4xl font-extrabold text-white leading-none">2.682</h3>
+<div class="flex items-center gap-1 mt-2">
+<span class="material-symbols-outlined text-white/80 text-[12px]">trending_up</span>
+<p class="font-medium text-white/80 text-xs">+4.0% de eficácia</p>
+</div>
+</div>
+</div>
+</div>
+<!-- OPERATION HISTORY TABLE -->
+<div class="bg-white rounded-xl border border-surface-container-high overflow-hidden flex-1 flex flex-col mb-1">
+<div class="overflow-x-auto flex-1">
+<table class="w-full text-left border-collapse min-w-[1200px]">
+<thead>
+<tr class="bg-secondary">
+<th class="px-5 py-2 text-[10px] font-bold text-white uppercase tracking-wider">CÓD.</th>
+<th class="px-5 py-2 text-[10px] font-bold text-white uppercase tracking-wider">PRODUTO</th>
+<th class="px-5 py-2 text-[10px] font-bold text-white uppercase tracking-wider">UNID.</th>
+<th class="px-5 py-2 text-[10px] font-bold text-white uppercase tracking-wider">VLR. UNIT.</th>
+<th class="px-5 py-2 text-[10px] font-bold text-white uppercase tracking-wider">QTD.</th>
+<th class="px-5 py-2 text-[10px] font-bold text-white uppercase tracking-wider">VLR. TOTAL</th>
+<th class="px-5 py-2 text-[10px] font-bold text-white uppercase tracking-wider">STATUS</th>
+<th class="px-5 py-2 text-[10px] font-bold text-white uppercase tracking-wider">ORIGEM</th>
+<th class="px-5 py-2 text-[10px] font-bold text-white uppercase tracking-wider">DESTINO</th>
+<th class="px-5 py-2 text-[10px] font-bold text-white uppercase tracking-wider">DATA</th>
+<th class="px-5 py-2 text-[10px] font-bold text-white uppercase tracking-wider">EDITOR</th>
+<th class="px-5 py-2 text-[10px] font-bold text-white uppercase tracking-wider text-center">AÇÃO</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high text-[10px] font-manrope font-medium text-on-surface-variant">
+<!-- Rows updated to 20 -->
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-5 py-1.5 text-outline">#MV-9842</td>
+<td class="px-5 py-1.5 font-bold text-on-surface">Cimento CP-II 50kg</td>
+<td class="px-5 py-1.5">SC</td>
+<td class="px-5 py-1.5">R$ 52,00</td>
+<td class="px-5 py-1.5 font-bold">240</td>
+<td class="px-5 py-1.5 font-bold text-primary">R$ 12.480,00</td>
+<td class="px-5 py-1.5"><span class="px-2 py-0.5 rounded-sm bg-green-100 text-green-700 font-bold border-l-2 border-green-600">ENTRADA</span></td>
+<td class="px-5 py-1.5 truncate max-w-[120px]">Votorantim S.A.</td>
+<td class="px-5 py-1.5 truncate max-w-[120px]">Depósito Central</td>
+<td class="px-5 py-1.5">12/10/2024</td>
+<td class="px-5 py-1.5">Carlos Silva</td>
+<td class="px-5 py-1.5 text-center"><div class="flex items-center justify-center gap-1"><button class="text-primary hover:bg-primary/10 p-0.5 rounded"><span class="material-symbols-outlined text-sm">edit</span></button><button class="text-red-500 hover:bg-red-50 p-0.5 rounded"><span class="material-symbols-outlined text-sm">delete</span></button></div></td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-5 py-1.5 text-outline">#MV-9841</td>
+<td class="px-5 py-1.5 font-bold text-on-surface">Cabo Flexível 2,5mm Azul</td>
+<td class="px-5 py-1.5">RL</td>
+<td class="px-5 py-1.5">R$ 250,00</td>
+<td class="px-5 py-1.5 font-bold">15</td>
+<td class="px-5 py-1.5 font-bold text-primary">R$ 3.750,00</td>
+<td class="px-5 py-1.5"><span class="px-2 py-0.5 rounded-sm bg-red-100 text-red-700 font-bold border-l-2 border-red-600">SAÍDA</span></td>
+<td class="px-5 py-1.5 truncate max-w-[120px]">Depósito Central</td>
+<td class="px-5 py-1.5 truncate max-w-[120px]">Ed. Imperial</td>
+<td class="px-5 py-1.5">12/10/2024</td>
+<td class="px-5 py-1.5">Ana Paula</td>
+<td class="px-5 py-1.5 text-center"><div class="flex items-center justify-center gap-1"><button class="text-primary hover:bg-primary/10 p-0.5 rounded"><span class="material-symbols-outlined text-sm">edit</span></button><button class="text-red-500 hover:bg-red-50 p-0.5 rounded"><span class="material-symbols-outlined text-sm">delete</span></button></div></td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-5 py-1.5 text-outline">#MV-9840</td>
+<td class="px-5 py-1.5 font-bold text-on-surface">Tinta Acrílica Fosca 18L</td>
+<td class="px-5 py-1.5">GL</td>
+<td class="px-5 py-1.5">R$ 455,00</td>
+<td class="px-5 py-1.5 font-bold">40</td>
+<td class="px-5 py-1.5 font-bold text-primary">R$ 18.200,00</td>
+<td class="px-5 py-1.5"><span class="px-2 py-0.5 rounded-sm bg-orange-50 text-secondary font-bold border-l-2 border-secondary">TRANSF.</span></td>
+<td class="px-5 py-1.5 truncate max-w-[120px]">Dep. Central</td>
+<td class="px-5 py-1.5 truncate max-w-[120px]">Sky Towers</td>
+<td class="px-5 py-1.5">11/10/2024</td>
+<td class="px-5 py-1.5">João Pereira</td>
+<td class="px-5 py-1.5 text-center"><div class="flex items-center justify-center gap-1"><button class="text-primary hover:bg-primary/10 p-0.5 rounded"><span class="material-symbols-outlined text-sm">edit</span></button><button class="text-red-500 hover:bg-red-50 p-0.5 rounded"><span class="material-symbols-outlined text-sm">delete</span></button></div></td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-5 py-1.5 text-outline">#MV-9839</td>
+<td class="px-5 py-1.5 font-bold text-on-surface">Tubo PVC 100mm</td>
+<td class="px-5 py-1.5">BR</td>
+<td class="px-5 py-1.5">R$ 89,00</td>
+<td class="px-5 py-1.5 font-bold">100</td>
+<td class="px-5 py-1.5 font-bold text-primary">R$ 8.900,00</td>
+<td class="px-5 py-1.5"><span class="px-2 py-0.5 rounded-sm bg-green-100 text-green-700 font-bold border-l-2 border-green-600">ENTRADA</span></td>
+<td class="px-5 py-1.5">Tigre S.A.</td>
+<td class="px-5 py-1.5">Dep. Central</td>
+<td class="px-5 py-1.5">11/10/2024</td>
+<td class="px-5 py-1.5">Marcos Lima</td>
+<td class="px-5 py-1.5 text-center"><div class="flex items-center justify-center gap-1"><button class="text-primary hover:bg-primary/10 p-0.5 rounded"><span class="material-symbols-outlined text-sm">edit</span></button><button class="text-red-500 hover:bg-red-50 p-0.5 rounded"><span class="material-symbols-outlined text-sm">delete</span></button></div></td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-5 py-1.5 text-outline">#MV-9838</td>
+<td class="px-5 py-1.5 font-bold text-on-surface">Piso Porcelanato 80x80</td>
+<td class="px-5 py-1.5">CX</td>
+<td class="px-5 py-1.5">R$ 145,00</td>
+<td class="px-5 py-1.5 font-bold">60</td>
+<td class="px-5 py-1.5 font-bold text-primary">R$ 8.700,00</td>
+<td class="px-5 py-1.5"><span class="px-2 py-0.5 rounded-sm bg-red-100 text-red-700 font-bold border-l-2 border-red-600">SAÍDA</span></td>
+<td class="px-5 py-1.5">Dep. Central</td>
+<td class="px-5 py-1.5">Res. Alvorada</td>
+<td class="px-5 py-1.5">10/10/2024</td>
+<td class="px-5 py-1.5">Ana Paula</td>
+<td class="px-5 py-1.5 text-center"><div class="flex items-center justify-center gap-1"><button class="text-primary hover:bg-primary/10 p-0.5 rounded"><span class="material-symbols-outlined text-sm">edit</span></button><button class="text-red-500 hover:bg-red-50 p-0.5 rounded"><span class="material-symbols-outlined text-sm">delete</span></button></div></td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-5 py-1.5 text-outline">#MV-9837</td>
+<td class="px-5 py-1.5 font-bold text-on-surface">Argamassa AC-III 20kg</td>
+<td class="px-5 py-1.5">SC</td>
+<td class="px-5 py-1.5">R$ 38,00</td>
+<td class="px-5 py-1.5 font-bold">150</td>
+<td class="px-5 py-1.5 font-bold text-primary">R$ 5.700,00</td>
+<td class="px-5 py-1.5"><span class="px-2 py-0.5 rounded-sm bg-green-100 text-green-700 font-bold border-l-2 border-green-600">ENTRADA</span></td>
+<td class="px-5 py-1.5">Quartzolit</td>
+<td class="px-5 py-1.5">Dep. Norte</td>
+<td class="px-5 py-1.5">10/10/2024</td>
+<td class="px-5 py-1.5">Carlos Silva</td>
+<td class="px-5 py-1.5 text-center"><div class="flex items-center justify-center gap-1"><button class="text-primary hover:bg-primary/10 p-0.5 rounded"><span class="material-symbols-outlined text-sm">edit</span></button><button class="text-red-500 hover:bg-red-50 p-0.5 rounded"><span class="material-symbols-outlined text-sm">delete</span></button></div></td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-5 py-1.5 text-outline">#MV-9836</td>
+<td class="px-5 py-1.5 font-bold text-on-surface">Lâmpada LED 9W Branca</td>
+<td class="px-5 py-1.5">UN</td>
+<td class="px-5 py-1.5">R$ 12,00</td>
+<td class="px-5 py-1.5 font-bold">500</td>
+<td class="px-5 py-1.5 font-bold text-primary">R$ 6.000,00</td>
+<td class="px-5 py-1.5"><span class="px-2 py-0.5 rounded-sm bg-green-100 text-green-700 font-bold border-l-2 border-green-600">ENTRADA</span></td>
+<td class="px-5 py-1.5">Philips</td>
+<td class="px-5 py-1.5">Dep. Central</td>
+<td class="px-5 py-1.5">09/10/2024</td>
+<td class="px-5 py-1.5">Marcos Lima</td>
+<td class="px-5 py-1.5 text-center"><div class="flex items-center justify-center gap-1"><button class="text-primary hover:bg-primary/10 p-0.5 rounded"><span class="material-symbols-outlined text-sm">edit</span></button><button class="text-red-500 hover:bg-red-50 p-0.5 rounded"><span class="material-symbols-outlined text-sm">delete</span></button></div></td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-5 py-1.5 text-outline">#MV-9835</td>
+<td class="px-5 py-1.5 font-bold text-on-surface">Vaso Sanitário Convencional</td>
+<td class="px-5 py-1.5">UN</td>
+<td class="px-5 py-1.5">R$ 310,00</td>
+<td class="px-5 py-1.5 font-bold">12</td>
+<td class="px-5 py-1.5 font-bold text-primary">R$ 3.720,00</td>
+<td class="px-5 py-1.5"><span class="px-2 py-0.5 rounded-sm bg-red-100 text-red-700 font-bold border-l-2 border-red-600">SAÍDA</span></td>
+<td class="px-5 py-1.5">Dep. Central</td>
+<td class="px-5 py-1.5">Ed. Vitória</td>
+<td class="px-5 py-1.5">09/10/2024</td>
+<td class="px-5 py-1.5">Ana Paula</td>
+<td class="px-5 py-1.5 text-center"><div class="flex items-center justify-center gap-1"><button class="text-primary hover:bg-primary/10 p-0.5 rounded"><span class="material-symbols-outlined text-sm">edit</span></button><button class="text-red-500 hover:bg-red-50 p-0.5 rounded"><span class="material-symbols-outlined text-sm">delete</span></button></div></td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-5 py-1.5 text-outline">#MV-9834</td>
+<td class="px-5 py-1.5 font-bold text-on-surface">Rolo de Lã 23cm</td>
+<td class="px-5 py-1.5">UN</td>
+<td class="px-5 py-1.5">R$ 22,50</td>
+<td class="px-5 py-1.5 font-bold">30</td>
+<td class="px-5 py-1.5 font-bold text-primary">R$ 675,00</td>
+<td class="px-5 py-1.5"><span class="px-2 py-0.5 rounded-sm bg-green-100 text-green-700 font-bold border-l-2 border-green-600">ENTRADA</span></td>
+<td class="px-5 py-1.5">Atlas Pincéis</td>
+<td class="px-5 py-1.5">Dep. Central</td>
+<td class="px-5 py-1.5">08/10/2024</td>
+<td class="px-5 py-1.5">Carlos Silva</td>
+<td class="px-5 py-1.5 text-center"><div class="flex items-center justify-center gap-1"><button class="text-primary hover:bg-primary/10 p-0.5 rounded"><span class="material-symbols-outlined text-sm">edit</span></button><button class="text-red-500 hover:bg-red-50 p-0.5 rounded"><span class="material-symbols-outlined text-sm">delete</span></button></div></td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-5 py-1.5 text-outline">#MV-9833</td>
+<td class="px-5 py-1.5 font-bold text-on-surface">Parafuso Sextavado 1/4</td>
+<td class="px-5 py-1.5">CT</td>
+<td class="px-5 py-1.5">R$ 45,00</td>
+<td class="px-5 py-1.5 font-bold">5</td>
+<td class="px-5 py-1.5 font-bold text-primary">R$ 225,00</td>
+<td class="px-5 py-1.5"><span class="px-2 py-0.5 rounded-sm bg-orange-50 text-secondary font-bold border-l-2 border-secondary">TRANSF.</span></td>
+<td class="px-5 py-1.5">Dep. Central</td>
+<td class="px-5 py-1.5">Dep. Sul</td>
+<td class="px-5 py-1.5">08/10/2024</td>
+<td class="px-5 py-1.5">João Pereira</td>
+<td class="px-5 py-1.5 text-center"><div class="flex items-center justify-center gap-1"><button class="text-primary hover:bg-primary/10 p-0.5 rounded"><span class="material-symbols-outlined text-sm">edit</span></button><button class="text-red-500 hover:bg-red-50 p-0.5 rounded"><span class="material-symbols-outlined text-sm">delete</span></button></div></td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-5 py-1.5 text-outline">#MV-9832</td>
+<td class="px-5 py-1.5 font-bold text-on-surface">Luva de Proteção Látex</td>
+<td class="px-5 py-1.5">PR</td>
+<td class="px-5 py-1.5">R$ 15,00</td>
+<td class="px-5 py-1.5 font-bold">100</td>
+<td class="px-5 py-1.5 font-bold text-primary">R$ 1.500,00</td>
+<td class="px-5 py-1.5"><span class="px-2 py-0.5 rounded-sm bg-red-100 text-red-700 font-bold border-l-2 border-red-600">SAÍDA</span></td>
+<td class="px-5 py-1.5">Dep. Norte</td>
+<td class="px-5 py-1.5">Obra Central</td>
+<td class="px-5 py-1.5">07/10/2024</td>
+<td class="px-5 py-1.5">Carlos Silva</td>
+<td class="px-5 py-1.5 text-center"><div class="flex items-center justify-center gap-1"><button class="text-primary hover:bg-primary/10 p-0.5 rounded"><span class="material-symbols-outlined text-sm">edit</span></button><button class="text-red-500 hover:bg-red-50 p-0.5 rounded"><span class="material-symbols-outlined text-sm">delete</span></button></div></td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-5 py-1.5 text-outline">#MV-9831</td>
+<td class="px-5 py-1.5 font-bold text-on-surface">Escada de Alumínio 7 degraus</td>
+<td class="px-5 py-1.5">UN</td>
+<td class="px-5 py-1.5">R$ 380,00</td>
+<td class="px-5 py-1.5 font-bold">2</td>
+<td class="px-5 py-1.5 font-bold text-primary">R$ 760,00</td>
+<td class="px-5 py-1.5"><span class="px-2 py-0.5 rounded-sm bg-green-100 text-green-700 font-bold border-l-2 border-green-600">ENTRADA</span></td>
+<td class="px-5 py-1.5">Alumaster</td>
+<td class="px-5 py-1.5">Dep. Central</td>
+<td class="px-5 py-1.5">07/10/2024</td>
+<td class="px-5 py-1.5">Ana Paula</td>
+<td class="px-5 py-1.5 text-center"><div class="flex items-center justify-center gap-1"><button class="text-primary hover:bg-primary/10 p-0.5 rounded"><span class="material-symbols-outlined text-sm">edit</span></button><button class="text-red-500 hover:bg-red-50 p-0.5 rounded"><span class="material-symbols-outlined text-sm">delete</span></button></div></td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-5 py-1.5 text-outline">#MV-9830</td>
+<td class="px-5 py-1.5 font-bold text-on-surface">Argamassa AC-I 20kg</td>
+<td class="px-5 py-1.5">SC</td>
+<td class="px-5 py-1.5">R$ 22,00</td>
+<td class="px-5 py-1.5 font-bold">200</td>
+<td class="px-5 py-1.5 font-bold text-primary">R$ 4.400,00</td>
+<td class="px-5 py-1.5"><span class="px-2 py-0.5 rounded-sm bg-green-100 text-green-700 font-bold border-l-2 border-green-600">ENTRADA</span></td>
+<td class="px-5 py-1.5">Quartzolit</td>
+<td class="px-5 py-1.5">Dep. Central</td>
+<td class="px-5 py-1.5">06/10/2024</td>
+<td class="px-5 py-1.5">Marcos Lima</td>
+<td class="px-5 py-1.5 text-center"><div class="flex items-center justify-center gap-1"><button class="text-primary hover:bg-primary/10 p-0.5 rounded"><span class="material-symbols-outlined text-sm">edit</span></button><button class="text-red-500 hover:bg-red-50 p-0.5 rounded"><span class="material-symbols-outlined text-sm">delete</span></button></div></td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-5 py-1.5 text-outline">#MV-9829</td>
+<td class="px-5 py-1.5 font-bold text-on-surface">Torneira Gourmet Cozinha</td>
+<td class="px-5 py-1.5">UN</td>
+<td class="px-5 py-1.5">R$ 185,00</td>
+<td class="px-5 py-1.5 font-bold">10</td>
+<td class="px-5 py-1.5 font-bold text-primary">R$ 1.850,00</td>
+<td class="px-5 py-1.5"><span class="px-2 py-0.5 rounded-sm bg-red-100 text-red-700 font-bold border-l-2 border-red-600">SAÍDA</span></td>
+<td class="px-5 py-1.5">Dep. Central</td>
+<td class="px-5 py-1.5">Res. Aurora</td>
+<td class="px-5 py-1.5">06/10/2024</td>
+<td class="px-5 py-1.5">Ana Paula</td>
+<td class="px-5 py-1.5 text-center"><div class="flex items-center justify-center gap-1"><button class="text-primary hover:bg-primary/10 p-0.5 rounded"><span class="material-symbols-outlined text-sm">edit</span></button><button class="text-red-500 hover:bg-red-50 p-0.5 rounded"><span class="material-symbols-outlined text-sm">delete</span></button></div></td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-5 py-1.5 text-outline">#MV-9828</td>
+<td class="px-5 py-1.5 font-bold text-on-surface">Joelho PVC 90 25mm</td>
+<td class="px-5 py-1.5">UN</td>
+<td class="px-5 py-1.5">R$ 1,50</td>
+<td class="px-5 py-1.5 font-bold">300</td>
+<td class="px-5 py-1.5 font-bold text-primary">R$ 450,00</td>
+<td class="px-5 py-1.5"><span class="px-2 py-0.5 rounded-sm bg-orange-50 text-secondary font-bold border-l-2 border-secondary">TRANSF.</span></td>
+<td class="px-5 py-1.5">Dep. Central</td>
+<td class="px-5 py-1.5">Dep. Sul</td>
+<td class="px-5 py-1.5">05/10/2024</td>
+<td class="px-5 py-1.5">João Pereira</td>
+<td class="px-5 py-1.5 text-center"><div class="flex items-center justify-center gap-1"><button class="text-primary hover:bg-primary/10 p-0.5 rounded"><span class="material-symbols-outlined text-sm">edit</span></button><button class="text-red-500 hover:bg-red-50 p-0.5 rounded"><span class="material-symbols-outlined text-sm">delete</span></button></div></td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-5 py-1.5 text-outline">#MV-9827</td>
+<td class="px-5 py-1.5 font-bold text-on-surface">Caixa de Gordura PVC</td>
+<td class="px-5 py-1.5">UN</td>
+<td class="px-5 py-1.5">R$ 120,00</td>
+<td class="px-5 py-1.5 font-bold">5</td>
+<td class="px-5 py-1.5 font-bold text-primary">R$ 600,00</td>
+<td class="px-5 py-1.5"><span class="px-2 py-0.5 rounded-sm bg-green-100 text-green-700 font-bold border-l-2 border-green-600">ENTRADA</span></td>
+<td class="px-5 py-1.5">Amanco</td>
+<td class="px-5 py-1.5">Dep. Central</td>
+<td class="px-5 py-1.5">05/10/2024</td>
+<td class="px-5 py-1.5">Carlos Silva</td>
+<td class="px-5 py-1.5 text-center"><div class="flex items-center justify-center gap-1"><button class="text-primary hover:bg-primary/10 p-0.5 rounded"><span class="material-symbols-outlined text-sm">edit</span></button><button class="text-red-500 hover:bg-red-50 p-0.5 rounded"><span class="material-symbols-outlined text-sm">delete</span></button></div></td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-5 py-1.5 text-outline">#MV-9826</td>
+<td class="px-5 py-1.5 font-bold text-on-surface">Massa Corrida 18L</td>
+<td class="px-5 py-1.5">GL</td>
+<td class="px-5 py-1.5">R$ 85,00</td>
+<td class="px-5 py-1.5 font-bold">15</td>
+<td class="px-5 py-1.5 font-bold text-primary">R$ 1.275,00</td>
+<td class="px-5 py-1.5"><span class="px-2 py-0.5 rounded-sm bg-red-100 text-red-700 font-bold border-l-2 border-red-600">SAÍDA</span></td>
+<td class="px-5 py-1.5">Dep. Central</td>
+<td class="px-5 py-1.5">Ed. Horizonte</td>
+<td class="px-5 py-1.5">04/10/2024</td>
+<td class="px-5 py-1.5">Ana Paula</td>
+<td class="px-5 py-1.5 text-center"><div class="flex items-center justify-center gap-1"><button class="text-primary hover:bg-primary/10 p-0.5 rounded"><span class="material-symbols-outlined text-sm">edit</span></button><button class="text-red-500 hover:bg-red-50 p-0.5 rounded"><span class="material-symbols-outlined text-sm">delete</span></button></div></td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-5 py-1.5 text-outline">#MV-9825</td>
+<td class="px-5 py-1.5 font-bold text-on-surface">Areia Fina Lavada</td>
+<td class="px-5 py-1.5">M3</td>
+<td class="px-5 py-1.5">R$ 140,00</td>
+<td class="px-5 py-1.5 font-bold">12</td>
+<td class="px-5 py-1.5 font-bold text-primary">R$ 1.680,00</td>
+<td class="px-5 py-1.5"><span class="px-2 py-0.5 rounded-sm bg-green-100 text-green-700 font-bold border-l-2 border-green-600">ENTRADA</span></td>
+<td class="px-5 py-1.5">Mineração Vale</td>
+<td class="px-5 py-1.5">Dep. Central</td>
+<td class="px-5 py-1.5">04/10/2024</td>
+<td class="px-5 py-1.5">Marcos Lima</td>
+<td class="px-5 py-1.5 text-center"><div class="flex items-center justify-center gap-1"><button class="text-primary hover:bg-primary/10 p-0.5 rounded"><span class="material-symbols-outlined text-sm">edit</span></button><button class="text-red-500 hover:bg-red-50 p-0.5 rounded"><span class="material-symbols-outlined text-sm">delete</span></button></div></td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-5 py-1.5 text-outline">#MV-9824</td>
+<td class="px-5 py-1.5 font-bold text-on-surface">Pincel Atlas 1 1/2</td>
+<td class="px-5 py-1.5">UN</td>
+<td class="px-5 py-1.5">R$ 8,90</td>
+<td class="px-5 py-1.5 font-bold">50</td>
+<td class="px-5 py-1.5 font-bold text-primary">R$ 445,00</td>
+<td class="px-5 py-1.5"><span class="px-2 py-0.5 rounded-sm bg-orange-50 text-secondary font-bold border-l-2 border-secondary">TRANSF.</span></td>
+<td class="px-5 py-1.5">Dep. Central</td>
+<td class="px-5 py-1.5">Dep. Norte</td>
+<td class="px-5 py-1.5">03/10/2024</td>
+<td class="px-5 py-1.5">João Pereira</td>
+<td class="px-5 py-1.5 text-center"><div class="flex items-center justify-center gap-1"><button class="text-primary hover:bg-primary/10 p-0.5 rounded"><span class="material-symbols-outlined text-sm">edit</span></button><button class="text-red-500 hover:bg-red-50 p-0.5 rounded"><span class="material-symbols-outlined text-sm">delete</span></button></div></td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-5 py-1.5 text-outline">#MV-9823</td>
+<td class="px-5 py-1.5 font-bold text-on-surface">Espátula de Aço 10cm</td>
+<td class="px-5 py-1.5">UN</td>
+<td class="px-5 py-1.5">R$ 14,50</td>
+<td class="px-5 py-1.5 font-bold">20</td>
+<td class="px-5 py-1.5 font-bold text-primary">R$ 290,00</td>
+<td class="px-5 py-1.5"><span class="px-2 py-0.5 rounded-sm bg-green-100 text-green-700 font-bold border-l-2 border-green-600">ENTRADA</span></td>
+<td class="px-5 py-1.5">Atlas Pincéis</td>
+<td class="px-5 py-1.5">Dep. Central</td>
+<td class="px-5 py-1.5">03/10/2024</td>
+<td class="px-5 py-1.5">Carlos Silva</td>
+<td class="px-5 py-1.5 text-center"><div class="flex items-center justify-center gap-1"><button class="text-primary hover:bg-primary/10 p-0.5 rounded"><span class="material-symbols-outlined text-sm">edit</span></button><button class="text-red-500 hover:bg-red-50 p-0.5 rounded"><span class="material-symbols-outlined text-sm">delete</span></button></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- FOOTER INFO - Aligned with minimal spacing -->
+</div>
+</main>
+</body></html>

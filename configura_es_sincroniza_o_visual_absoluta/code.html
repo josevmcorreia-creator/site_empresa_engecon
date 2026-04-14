@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-background": "#1a1c1d",
+                    "surface": "#f9f9fb",
+                    "secondary": "#9a4600",
+                    "primary": "#030063",
+                    "inverse-surface": "#2f3132",
+                    "surface-dim": "#d9dadc",
+                    "tertiary-container": "#3f0301",
+                    "on-surface": "#1a1c1d",
+                    "surface-bright": "#f9f9fb",
+                    "tertiary-fixed-dim": "#ffb4a7",
+                    "on-primary-fixed": "#070666",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#5256aa",
+                    "error-container": "#ffdad6",
+                    "tertiary": "#000000",
+                    "primary-container": "#070666",
+                    "inverse-on-surface": "#f0f0f2",
+                    "on-secondary-fixed": "#321200",
+                    "on-tertiary-container": "#c7695a",
+                    "on-surface-variant": "#464651",
+                    "on-tertiary-fixed": "#3f0301",
+                    "on-primary-fixed-variant": "#393d90",
+                    "on-secondary-fixed-variant": "#753400",
+                    "inverse-primary": "#c0c1ff",
+                    "on-primary": "#ffffff",
+                    "surface-container-high": "#e8e8ea",
+                    "error": "#ba1a1a",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed": "#ffdbc9",
+                    "on-secondary-container": "#6d3000",
+                    "background": "#f9f9fb",
+                    "outline-variant": "#c7c5d3",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed": "#ffdad4",
+                    "secondary-container": "#fe924e",
+                    "surface-container-highest": "#e2e2e4",
+                    "on-error-container": "#93000a",
+                    "primary-fixed-dim": "#c0c1ff",
+                    "surface-variant": "#e2e2e4",
+                    "secondary-fixed-dim": "#ffb68c",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#777cd3",
+                    "surface-container": "#eeeef0",
+                    "primary-fixed": "#e1e0ff",
+                    "surface-container-low": "#f3f3f5",
+                    "on-tertiary-fixed-variant": "#7a2e23",
+                    "outline": "#777682",
+                    "navy-sidebar": "#030030"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Manrope', sans-serif; }
+        
+        .bg-navy-deep {
+            background-color: #030030;
+        }
+        .sidebar-active {
+            background-color: rgba(255, 255, 255, 0.08);
+            color: #ffffff;
+            font-weight: 700;
+            border-left: 4px solid #FF9200;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface overflow-hidden">
+<!-- SIDE BAR NAVIGATION -->
+<aside class="flex flex-col h-screen fixed left-0 top-0 w-64 bg-navy-deep z-50 transition-all duration-200 ease-in-out">
+<div class="pt-10 pb-6 flex flex-col items-center">
+<div class="mb-1 text-center">
+<a href="../index.html" class="text-3xl font-black text-white font-manrope tracking-tighter hover:opacity-80 transition-opacity">ENGECON</a>
+</div>
+<p class="text-white/40 text-[10px] font-bold tracking-[0.2em] uppercase text-center">GESTÃO DE REFORMAS</p>
+<div class="w-48 h-[1px] bg-white mt-8 opacity-30"></div>
+</div>
+<nav class="mt-4 flex-1 space-y-1 overflow-y-auto">
+<a class="flex items-center px-8 py-4 text-white/60 hover:text-white hover:bg-white/5 font-manrope text-sm font-medium transition-all duration-200 ease-in-out" href="../resumo_geral_cadastro_de_equipe_nos_boxes/code.html">
+<span class="material-symbols-outlined mr-4 text-2xl">dashboard</span>
+            Resumo Geral
+        </a>
+<a class="flex items-center px-8 py-4 text-white/60 hover:text-white hover:bg-white/5 font-manrope text-sm font-medium transition-all duration-200 ease-in-out" href="../movimenta_es_vers_o_final_limpa/code.html">
+<span class="material-symbols-outlined mr-4 text-2xl">swap_horiz</span>
+            Movimentações
+        </a>
+<a class="flex items-center px-8 py-4 text-white/60 hover:text-white hover:bg-white/5 font-manrope text-sm font-medium transition-all duration-200 ease-in-out" href="../controle_de_estoque_financeiro_com_coluna_editor/code.html">
+<span class="material-symbols-outlined mr-4 text-2xl">inventory_2</span>
+            Estoque
+        </a>
+<a class="flex items-center px-8 py-4 text-white/60 hover:text-white hover:bg-white/5 font-manrope text-sm font-medium transition-all duration-200 ease-in-out" href="../relat_rio_de_obra_menu_lateral_refinado_final_v2/code.html">
+<span class="material-symbols-outlined mr-4 text-2xl">domain</span>
+            Obras
+        </a>
+<a class="flex items-center px-8 py-4 text-white/60 hover:text-white hover:bg-white/5 font-manrope text-sm font-medium transition-all duration-200 ease-in-out" href="../registro_de_equipe_cor_de_indicador_ajustada/code.html">
+<span class="material-symbols-outlined mr-4 text-2xl">group</span> 
+            Usuários
+        </a>
+<a class="flex items-center px-8 py-4 text-white/60 hover:text-white hover:bg-white/5 font-manrope text-sm font-medium transition-all duration-200 ease-in-out" href="../listagem_de_colaboradores_rolagem_ajustada_v2/code.html">
+<span class="material-symbols-outlined mr-4 text-2xl">shopping_cart</span>
+            Compras
+        </a>
+<a class="flex items-center px-8 py-4 text-white/60 hover:text-white hover:bg-white/5 font-manrope text-sm font-medium transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined mr-4 text-2xl">assessment</span>
+            Relatórios
+        </a>
+<!-- Active item: Configurações with Orange indicator bar -->
+<a class="flex items-center px-8 py-4 sidebar-active text-white font-manrope text-sm" href="../configura_es_sincroniza_o_visual_absoluta/code.html">
+<span class="material-symbols-outlined mr-4 text-2xl">settings</span>
+            Configurações
+        </a>
+</nav>
+<div class="px-6 py-8">
+<div class="w-full h-px bg-white/10 mb-8"></div>
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded-full bg-[#FF9200] flex items-center justify-center text-xs font-black text-white">
+                    JP
+                </div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-bold text-white truncate">João Pereira</p>
+<p class="text-[10px] text-white/40 uppercase tracking-tighter truncate">GESTOR DE OBRAS</p>
+</div>
+</div>
+<button class="text-white/40 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-lg">logout</span>
+</button>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="ml-64 px-12 pb-12 h-screen overflow-y-auto max-w-[2560px] pt-12">
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Perfil do Usuário Card -->
+<div class="col-span-8 bg-surface-container-low rounded-xl p-8 flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-[#fe924e]/5 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
+<div>
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-[#030063]" data-icon="person">person</span>
+<h2 class="text-xl font-bold">Perfil do Usuário</h2>
+</div>
+<div class="flex gap-12">
+<!-- Profile Picture Upload Area -->
+<div class="relative group/avatar">
+<div class="w-32 h-32 rounded-xl bg-slate-200 overflow-hidden border-4 border-white shadow-md relative">
+<img alt="User avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUdshdwQlJ8u7bfRR5Nfu67TI0E9esmOctQIzQAoizdOfCOaWcHGgVJ--hJywSV_PmH16LI7sejmPOJcUxbR4QCWCQJmmn-kY3HOSFHohleqMU8lEkB3X2I1Y9GyKR5M2TG_w9FlgcmYAMokLktf6XyP3kUS_mNQ-LdE_XUs3EGZEy8cuzF7gw90Oi0BAasInsJ4hC32oiMtIqi3vUtEHNQdu4o8RBKUnZKYWvIT-szoyqSl0YgjMsm9UT9Kl6Y1sZmosoZ8b77Q"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover/avatar:opacity-100 transition-opacity flex flex-col items-center justify-center cursor-pointer">
+<span class="material-symbols-outlined text-white text-3xl" data-icon="photo_camera">photo_camera</span>
+<span class="text-[10px] text-white font-bold uppercase mt-1">Alterar Foto</span>
+</div>
+</div>
+<button class="absolute -bottom-2 -right-2 bg-[#fe924e] text-white p-2 rounded-full shadow-lg border-2 border-white hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-sm" data-icon="edit">edit</span>
+</button>
+</div>
+<div class="flex-1 grid grid-cols-2 gap-8">
+<div class="space-y-4">
+<div>
+<label class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest block mb-1">Nome Completo</label>
+<p class="text-lg font-medium">João Pereira da Silva</p>
+</div>
+<div>
+<label class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest block mb-1">Cargo / Função</label>
+<p class="text-lg font-medium">Engenheiro Chefe de Obras</p>
+</div>
+</div>
+<div class="space-y-4">
+<div>
+<label class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest block mb-1">Email Corporativo</label>
+<p class="text-lg font-medium">joao.pereira@engecon.com.br</p>
+</div>
+<button class="mt-2 text-[#030063] font-bold flex items-center gap-2 hover:translate-x-1 transition-transform">
+<span class="material-symbols-outlined text-sm" data-icon="lock_reset">lock_reset</span>
+                                Alterar Senha de Acesso
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-white/40 flex justify-end">
+<button class="bg-[#030063] text-white px-8 py-2.5 rounded-md font-bold text-sm hover:opacity-90 transition-opacity">Salvar Alterações</button>
+</div>
+</div>
+<!-- Integração Omie Card -->
+<div class="col-span-4 bg-surface-container-highest rounded-xl p-8 border-l-4 border-[#fe924e] flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-8">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#fe924e]" data-icon="api">api</span>
+<h2 class="text-xl font-bold">Integração Omie</h2>
+</div>
+<span class="bg-green-100 text-green-700 text-[10px] font-bold px-2 py-1 rounded uppercase">Ativo</span>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<span class="text-sm text-on-surface-variant">Status da Conexão</span>
+<span class="text-sm font-semibold text-green-600">Sincronizado</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-sm text-on-surface-variant">Última Sincronização</span>
+<span class="text-sm font-semibold">Hoje, às 14:32</span>
+</div>
+</div>
+</div>
+<button class="w-full mt-8 border-2 border-[#030063] text-[#030063] py-2 rounded-md font-bold text-sm hover:bg-[#030063] hover:text-white transition-all">Sincronizar Agora</button>
+</div>
+<!-- Parâmetros Tributários -->
+<div class="col-span-4 bg-surface-container-low rounded-xl p-8 shadow-sm">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="account_balance">account_balance</span>
+<h2 class="text-xl font-bold">Parâmetros Tributários</h2>
+</div>
+<div class="mb-6 p-4 bg-slate-50 border border-slate-200 rounded-lg">
+<div class="flex w-full">
+<input class="flex-1 bg-white border border-slate-200 rounded-l py-2 px-3 text-sm focus:ring-1 focus:ring-primary focus:border-primary border-r-0" placeholder="Senha de Administrador" type="password"/>
+<button class="bg-[#030063] text-white px-4 py-2 rounded-r font-bold text-xs hover:opacity-90 whitespace-nowrap uppercase">Desbloquear</button>
+</div>
+</div>
+<div class="space-y-4 opacity-40 pointer-events-none grayscale-[0.5]">
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest block mb-1">INSS (Retenção)</label>
+<div class="relative">
+<input class="w-full bg-white border border-slate-200 rounded py-2 px-3 text-sm" type="text" value="3,50"/>
+<span class="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-400">%</span>
+</div>
+</div>
+<div>
+<label class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest block mb-1">COFINS</label>
+<div class="relative">
+<input class="w-full bg-white border border-slate-200 rounded py-2 px-3 text-sm" type="text" value="3,00"/>
+<span class="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-400">%</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest block mb-1">PIS</label>
+<div class="relative">
+<input class="w-full bg-white border border-slate-200 rounded py-2 px-3 text-sm" type="text" value="0,65"/>
+<span class="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-400">%</span>
+</div>
+</div>
+<div>
+<label class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest block mb-1">CSLL</label>
+<div class="relative">
+<input class="w-full bg-white border border-slate-200 rounded py-2 px-3 text-sm" type="text" value="1,00"/>
+<span class="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-400">%</span>
+</div>
+</div>
+</div>
+<div>
+<label class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest block mb-1">ISS (Construção Civil)</label>
+<div class="relative">
+<input class="w-full bg-white border border-slate-200 rounded py-2 px-3 text-sm" type="text" value="5,00"/>
+<span class="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-400">%</span>
+</div>
+</div>
+</div>
+<button class="w-full mt-6 bg-primary text-white py-2 rounded-md font-bold text-sm hover:opacity-90 transition-opacity cursor-not-allowed opacity-50 uppercase" disabled="true">Atualizar Tributos</button>
+</div>
+<!-- Modo de Acesso Administrador -->
+<div class="col-span-4 bg-surface-container-low rounded-xl p-8 border-t-4 border-red-600">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-red-600" data-icon="admin_panel_settings">admin_panel_settings</span>
+<h2 class="text-xl font-bold">Acesso Administrador</h2>
+</div>
+<div class="space-y-5">
+<div class="mb-6 p-4 bg-red-50/50 border border-red-100 rounded-lg flex flex-col gap-3">
+<div class="flex items-center gap-2 text-red-600">
+<span class="material-symbols-outlined text-sm">lock</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Acesso Restrito - Requer Senha</span>
+</div>
+<div class="flex w-full">
+<input class="flex-1 bg-white border border-red-200 rounded-l py-2 px-3 text-sm focus:ring-1 focus:ring-red-600 focus:border-red-600 border-r-0" placeholder="Senha de Administrador" type="password"/>
+<button class="bg-red-600 text-white px-4 py-2 rounded-r font-bold text-xs hover:opacity-90 uppercase">Desbloquear</button>
+</div>
+</div>
+<div class="flex items-center justify-between opacity-40 pointer-events-none grayscale">
+<div>
+<p class="text-sm font-bold">Modo Master</p>
+<p class="text-[10px] text-on-surface-variant">Acesso irrestrito a todas as obras</p>
+</div>
+<div class="w-12 h-6 bg-slate-200 rounded-full relative cursor-pointer">
+<div class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full shadow-sm transition-all"></div>
+</div>
+</div>
+<div class="flex items-center justify-between opacity-40 pointer-events-none grayscale">
+<div>
+<p class="text-sm font-bold">Sobrescrita de Permissão</p>
+<p class="text-[10px] text-on-surface-variant">Ignorar restrições de usuários locais</p>
+</div>
+<div class="w-12 h-6 bg-red-600 rounded-full relative cursor-pointer">
+<div class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full shadow-sm transition-all"></div>
+</div>
+</div>
+<div class="flex items-center justify-between opacity-40 pointer-events-none grayscale">
+<div>
+<p class="text-sm font-bold">Auditoria de Sistema</p>
+<p class="text-[10px] text-on-surface-variant">Visualizar logs técnicos detalhados</p>
+</div>
+<div class="w-12 h-6 bg-red-600 rounded-full relative cursor-pointer">
+<div class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full shadow-sm transition-all"></div>
+</div>
+</div>
+</div>
+<div class="mt-8 p-3 bg-red-50 rounded text-[10px] text-red-800 font-medium leading-relaxed">
+                Atenção: Estas configurações afetam a segurança global da plataforma e devem ser usadas apenas por pessoal autorizado.
+            </div>
+</div>
+<!-- Integração Trello Card -->
+<div class="col-span-4 bg-surface-container-highest rounded-xl p-8 border-l-4 border-blue-500 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-8">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-blue-500" data-icon="grid_view">grid_view</span>
+<h2 class="text-xl font-bold">Integração Trello</h2>
+</div>
+<span class="bg-yellow-100 text-yellow-700 text-[10px] font-bold px-2 py-1 rounded uppercase">Pendente</span>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<span class="text-sm text-on-surface-variant">Status da Conexão</span>
+<span class="text-sm font-semibold text-yellow-600">Aguardando API Key</span>
+</div>
+<p class="text-xs text-on-surface-variant mt-2">Sincronize seus cartões de obra automaticamente com o ERP.</p>
+</div>
+</div>
+<button class="w-full mt-8 bg-blue-500 text-white py-2 rounded-md font-bold text-sm hover:bg-blue-600 transition-all uppercase">Configurar Integração</button>
+</div>
+<!-- Preferências do Sistema Card -->
+<div class="col-span-4 bg-surface-container-low rounded-xl p-8">
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-[#030063]" data-icon="tune">tune</span>
+<h2 class="text-xl font-bold">Preferências</h2>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-4 bg-white rounded-lg">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400" data-icon="language">language</span>
+<span class="text-sm font-medium">Idioma</span>
+</div>
+<select class="text-xs font-bold border-none bg-transparent focus:ring-0 cursor-pointer">
+<option>Português (BR)</option>
+<option>English (US)</option>
+</select>
+</div>
+<div class="flex items-center justify-between p-4 bg-white rounded-lg">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400" data-icon="dark_mode">dark_mode</span>
+<span class="text-sm font-medium">Tema Visual</span>
+</div>
+<span class="text-xs font-bold text-on-surface-variant uppercase">Claro</span>
+</div>
+</div>
+</div>
+<!-- Notificações do Sistema Card -->
+<div class="col-span-12 bg-surface-container-low rounded-xl p-8">
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-[#030063]" data-icon="notifications_active">notifications_active</span>
+<h2 class="text-xl font-bold">Notificações do Sistema</h2>
+</div>
+<div class="grid grid-cols-3 gap-6">
+<div class="p-6 bg-white rounded-xl border border-slate-100">
+<div class="flex items-center justify-between mb-4">
+<span class="material-symbols-outlined text-[#fe924e]" data-icon="mail">mail</span>
+<div class="w-10 h-5 bg-[#fe924e] rounded-full relative cursor-pointer">
+<div class="absolute right-1 top-1 w-3 h-3 bg-white rounded-full shadow-sm"></div>
+</div>
+</div>
+<h3 class="font-bold text-sm mb-1">Alertas por E-mail</h3>
+<p class="text-xs text-on-surface-variant">Receba relatórios diários e alertas críticos diretamente no seu e-mail corporativo.</p>
+</div>
+<div class="p-6 bg-white rounded-xl border border-slate-100">
+<div class="flex items-center justify-between mb-4">
+<span class="material-symbols-outlined text-[#fe924e]" data-icon="inventory">inventory</span>
+<div class="w-10 h-5 bg-[#fe924e] rounded-full relative cursor-pointer">
+<div class="absolute right-1 top-1 w-3 h-3 bg-white rounded-full shadow-sm"></div>
+</div>
+</div>
+<h3 class="font-bold text-sm mb-1">Push: Estoque Baixo</h3>
+<p class="text-xs text-on-surface-variant">Notificações em tempo real quando itens de obra atingirem o nível mínimo configurado.</p>
+</div>
+<div class="p-6 bg-white rounded-xl border border-slate-100">
+<div class="flex items-center justify-between mb-4">
+<span class="material-symbols-outlined text-[#fe924e]" data-icon="assignment_late">assignment_late</span>
+<div class="w-10 h-5 bg-slate-200 rounded-full relative cursor-pointer">
+<div class="absolute left-1 top-1 w-3 h-3 bg-white rounded-full shadow-sm"></div>
+</div>
+</div>
+<h3 class="font-bold text-sm mb-1">Vencimento de Prazos</h3>
+<p class="text-xs text-on-surface-variant">Alertas sobre etapas de obra que estão próximas da data de entrega planejada.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- System Footer Metadata -->
+<div class="mt-16 pt-8 border-t border-slate-200 flex justify-between items-center text-[10px] text-slate-400 uppercase tracking-widest font-bold">
+<div>Versão do Sistema: 2.5.0-stable</div>
+<div>Último Backup: 24/05/2024 03:00 AM</div>
+<div class="flex items-center gap-4">
+<a class="hover:text-primary transition-colors" href="#">Termos de Uso</a>
+<a class="hover:text-primary transition-colors" href="#">Privacidade</a>
+</div>
+</div>
+</main>
+<!-- Floating Action Button -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-[#030063] text-white rounded-full flex items-center justify-center shadow-lg hover:scale-105 active:scale-95 transition-transform z-50">
+<span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+</button>
+</body></html>

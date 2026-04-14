@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ENGECON WMS - Resumo Geral</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#0001AC",
+                        "secondary": "#FF8C00",
+                        "neon-orange": "#FF8C00",
+                        "deep-blue": "#0001AC",
+                        "sidebar-blue": "#000033",
+                        "surface": "#F3F4F6",
+                        "on-surface": "#1a1c1d",
+                        "on-surface-variant": "#464651",
+                        "outline-variant": "#c7c5d3",
+                        "status-green": "#22C55E",
+                        "status-orange": "#F59E0B",
+                        "status-blue": "#2563EB",
+                        "status-yellow": "#EAB308",
+                        "status-red": "#DC2626",
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    },
+                    "screens": {
+                        "3xl": "1920px",
+                        "ultrawide": "2560px"
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-pill { font-variation-settings: 'FILL' 1; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #0001AC; border-radius: 10px; }
+        .card-shadow { box-shadow: 0 2px 4px rgba(0,0,0,0.02), 0 1px 0 rgba(0,0,0,0.05); }
+        .bg-sidebar-blue { background-color: #000033; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface flex min-h-screen overflow-hidden">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-sidebar-blue flex flex-col z-50">
+<div class="pt-10 pb-4 px-6 text-center">
+<div class="flex flex-col items-center">
+<a href="../index.html" class="text-3xl font-black text-white tracking-tighter leading-none uppercase hover:opacity-80 transition-opacity">ENGECON</a>
+<p class="text-white/40 text-[8px] font-bold tracking-[0.2em] uppercase mt-2">GESTÃO DE REFORMAS</p>
+</div>
+<div class="w-full h-[2px] bg-white/40 mt-8"></div>
+</div>
+<nav class="flex-1 px-0 mt-2 overflow-y-auto space-y-1">
+<a class="flex items-center px-8 py-4 bg-white/5 text-white text-sm font-bold transition-all relative border-l-[3px] border-neon-orange" href="../resumo_geral_cadastro_de_equipe_nos_boxes/code.html">
+<span class="material-symbols-outlined mr-4 text-[20px]" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+            Resumo Geral
+        </a>
+<a class="flex items-center px-8 py-4 text-white/60 hover:text-white text-sm transition-all group" href="../movimenta_es_vers_o_final_limpa/code.html">
+<span class="material-symbols-outlined mr-4 text-[20px]">swap_horiz</span>
+            Movimentações
+        </a>
+<a class="flex items-center px-8 py-4 text-white/60 hover:text-white text-sm transition-all group" href="../controle_de_estoque_financeiro_com_coluna_editor/code.html">
+<span class="material-symbols-outlined mr-4 text-[20px]">inventory_2</span>
+            Estoque
+        </a>
+<a class="flex items-center px-8 py-4 text-white/60 hover:text-white text-sm transition-all group" href="../relat_rio_de_obra_menu_lateral_refinado_final_v2/code.html">
+<span class="material-symbols-outlined mr-4 text-[20px]">domain</span>
+            Obras/Depósitos
+        </a>
+<a class="flex items-center px-8 py-4 text-white/60 hover:text-white text-sm transition-all group" href="../registro_de_equipe_cor_de_indicador_ajustada/code.html">
+<span class="material-symbols-outlined mr-4 text-[20px]">group</span>
+            Usuários
+        </a>
+<a class="flex items-center px-8 py-4 text-white/60 hover:text-white text-sm transition-all group" href="../listagem_de_colaboradores_rolagem_ajustada_v2/code.html">
+<span class="material-symbols-outlined mr-4 text-[20px]">shopping_cart</span>
+            Compras
+        </a>
+<a class="flex items-center px-8 py-4 text-white/60 hover:text-white text-sm transition-all group" href="#">
+<span class="material-symbols-outlined mr-4 text-[20px]">bar_chart</span>
+            Relatórios
+        </a>
+<a class="flex items-center px-8 py-4 text-white/60 hover:text-white text-sm transition-all group" href="../configura_es_sincroniza_o_visual_absoluta/code.html">
+<span class="material-symbols-outlined mr-4 text-[20px]">settings</span>
+            Configurações
+        </a>
+</nav>
+<div class="px-6 py-6 mt-auto">
+<div class="w-full h-[1px] bg-white/10 mb-6"></div>
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded-full bg-neon-orange flex items-center justify-center text-xs font-black text-white">
+                    JP
+                </div>
+<div class="flex-1 min-w-0">
+<p class="text-xs font-bold text-white">João Pereira</p>
+<p class="text-[8px] text-white/30 uppercase font-bold tracking-tight">GESTOR DE OBRAS</p>
+</div>
+</div>
+<button class="text-white/20 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-xl">logout</span>
+</button>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 flex-1 flex flex-col h-screen relative bg-white overflow-hidden">
+<!-- TopNavBar -->
+<header class="h-20 border-b border-gray-100 flex items-center justify-between px-10 shrink-0">
+<div class="flex items-center gap-4">
+<div class="relative w-[320px]">
+<input class="w-full bg-[#f4f4f7] border-none rounded-sm py-2.5 pl-10 pr-4 text-[13px] font-medium text-gray-500 focus:ring-0 placeholder:text-gray-400 placeholder:font-normal uppercase" placeholder="Procurar local" type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-[18px]">search</span>
+</div>
+<button class="flex items-center gap-2 px-6 py-2.5 border border-gray-100 bg-white text-[#2a2a72] text-[12px] font-bold uppercase tracking-wider rounded-sm hover:bg-gray-50 transition-colors">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+                Filtros
+            </button>
+</div>
+<div class="flex items-center gap-4 bg-[#f8f9fa] rounded-3xl py-1.5 pr-2 border border-gray-50 pl-4">
+<span class="font-extrabold text-[#2d3e50]">Eng. Roberto</span>
+<div class="w-10 h-10 rounded-2xl bg-[#2d3e50] overflow-hidden">
+<img alt="Eng. Roberto" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCP7wgioY4rqYILTCs0Zff_g9uZ92ttt8PswctkOgfLQzBFZCadblOlXmqd6pLBmfYgg-JCEZ4czZh2gS1-7Z97AaXhdf8w2ED9nzcwGlDawNKZlfMk7NbytBSbzW9wILcR1G9FSoAG_L0ZJG5QZLy52O6qE8P4lv5EWQilN4OHE1bg4X0ZTvovLIaTkCoeVsr5svbNlL9hgbU9WTuN0oq_lMASgphq1YuT7SCSXESU8SXSHzFkFJZLxv262-uCMERZL4r6GPKYUg"/>
+</div>
+</div>
+</header>
+<!-- Content Area with Scrolling -->
+<div class="flex-1 overflow-y-auto bg-surface/50 p-10">
+<div class="flex items-center justify-between mb-8">
+<div class="flex flex-col">
+<h2 class="text-2xl font-black text-deep-blue uppercase tracking-tight">Resumo Geral</h2>
+<div class="w-12 h-1 bg-neon-orange mt-1"></div>
+</div>
+</div>
+<!-- High Density Grid for Ultrawide -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 ultrawide:grid-cols-6 gap-6">
+<!-- Template Functionality (Repeated Cards) -->
+<!-- Card 1 (Obra) -->
+<div class="bg-white border border-gray-200/60 rounded-xl overflow-hidden flex flex-col transition-all hover:shadow-xl hover:-translate-y-1 group card-shadow">
+<div class="p-4 border-b border-gray-50 flex justify-between items-center bg-gray-50/30">
+<span class="text-[0.6rem] font-black text-white px-2 py-0.5 rounded-sm uppercase bg-neon-orange">Obra</span>
+<span class="text-[0.6rem] font-black text-status-green bg-status-green/10 px-2 py-0.5 rounded-sm uppercase ml-2 border border-status-green/20">Status: Ativa</span>
+<button class="ml-auto w-6 h-6 rounded-full bg-white border border-gray-200 flex items-center justify-center hover:bg-deep-blue hover:text-white transition-colors group/btn" title="Cadastrar Equipe"><span class="material-symbols-outlined text-[16px] text-deep-blue group-hover/btn:text-white">add</span></button></div>
+<div class="p-5 flex-1">
+<h3 class="text-sm font-black text-deep-blue mb-1 leading-tight group-hover:text-neon-orange transition-colors">Canteiro Central - Torre A</h3>
+<p class="text-[0.65rem] text-gray-500 truncate mb-6">Av. das Nações Unidas, 12901 - São Paulo/SP</p>
+<div class="grid grid-cols-2 gap-x-4 gap-y-5 mb-2">
+<div class="border-l-4 border-status-red pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Para Hoje</p>
+<p class="text-xl font-black text-status-red">14</p>
+</div>
+<div class="border-l-4 border-status-orange pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Urgente</p>
+<p class="text-xl font-black text-status-orange">08</p>
+</div>
+<div class="border-l-4 border-status-green pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Comprado</p>
+<p class="text-xl font-black text-status-green">22</p>
+</div>
+<div class="border-l-4 border-status-yellow pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Pendentes</p>
+<p class="text-xl font-black text-status-yellow">05</p>
+</div>
+</div>
+</div>
+<button class="w-full py-4 bg-gray-50 text-deep-blue text-[0.65rem] font-black uppercase tracking-widest border-t border-gray-100 hover:bg-deep-blue hover:text-white transition-all flex items-center justify-center gap-2">
+                    Ver Detalhes <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<!-- Card 2 (Depósito) -->
+<div class="bg-white border border-gray-200/60 rounded-xl overflow-hidden flex flex-col transition-all hover:shadow-xl hover:-translate-y-1 group card-shadow">
+<div class="p-4 border-b border-gray-50 flex justify-between items-center bg-gray-50/30">
+<span class="text-[0.6rem] font-black bg-deep-blue text-white px-2 py-0.5 rounded-sm uppercase">Depósito</span>
+<span class="text-[0.6rem] font-black text-status-green bg-status-green/10 px-2 py-0.5 rounded-sm uppercase ml-2 border border-status-green/20">Status: Ativa</span>
+<button class="ml-auto w-6 h-6 rounded-full bg-white border border-gray-200 flex items-center justify-center hover:bg-deep-blue hover:text-white transition-colors group/btn" title="Cadastrar Equipe"><span class="material-symbols-outlined text-[16px] text-deep-blue group-hover/btn:text-white">add</span></button></div>
+<div class="p-5 flex-1">
+<h3 class="text-sm font-black text-deep-blue mb-1 leading-tight group-hover:text-neon-orange transition-colors">Logística Raposo - D1</h3>
+<p class="text-[0.65rem] text-gray-500 truncate mb-6">Rod. Raposo Tavares, KM 18 - Cotia/SP</p>
+<div class="grid grid-cols-2 gap-x-4 gap-y-5 mb-2">
+<div class="border-l-4 border-status-red pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Para Hoje</p>
+<p class="text-xl font-black text-status-red">12</p>
+</div>
+<div class="border-l-4 border-status-orange pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Urgente</p>
+<p class="text-xl font-black text-status-orange">15</p>
+</div>
+<div class="border-l-4 border-status-green pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Comprado</p>
+<p class="text-xl font-black text-status-green">45</p>
+</div>
+<div class="border-l-4 border-status-yellow pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Pendentes</p>
+<p class="text-xl font-black text-status-yellow">31</p>
+</div>
+</div>
+</div>
+<button class="w-full py-4 bg-gray-50 text-deep-blue text-[0.65rem] font-black uppercase tracking-widest border-t border-gray-100 hover:bg-deep-blue hover:text-white transition-all flex items-center justify-center gap-2">
+                    Ver Detalhes <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<!-- Card 3 (Obra Desativada) -->
+<div class="bg-white border border-gray-200/60 rounded-xl overflow-hidden flex flex-col transition-all hover:shadow-xl hover:-translate-y-1 group card-shadow">
+<div class="p-4 border-b border-gray-50 flex justify-between items-center bg-gray-50/30">
+<span class="text-[0.6rem] font-black text-white px-2 py-0.5 rounded-sm uppercase bg-neon-orange">Obra</span>
+<span class="text-[0.6rem] font-black text-gray-400 bg-gray-100 px-2 py-0.5 rounded-sm uppercase ml-2 border border-gray-200">Status: Desativa</span>
+<button class="ml-auto w-6 h-6 rounded-full bg-white border border-gray-200 flex items-center justify-center hover:bg-deep-blue hover:text-white transition-colors group/btn" title="Cadastrar Equipe"><span class="material-symbols-outlined text-[16px] text-deep-blue group-hover/btn:text-white">add</span></button></div>
+<div class="p-5 flex-1">
+<h3 class="text-sm font-black text-deep-blue mb-1 leading-tight group-hover:text-neon-orange transition-colors">Residencial Jardins</h3>
+<p class="text-[0.65rem] text-gray-500 truncate mb-6">Rua Oscar Freire, 400 - Jardins/SP</p>
+<div class="grid grid-cols-2 gap-x-4 gap-y-5 mb-2">
+<div class="border-l-4 border-status-red pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Para Hoje</p>
+<p class="text-xl font-black text-status-red">09</p>
+</div>
+<div class="border-l-4 border-status-orange pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Urgente</p>
+<p class="text-xl font-black text-status-orange">03</p>
+</div>
+<div class="border-l-4 border-status-green pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Comprado</p>
+<p class="text-xl font-black text-status-green">10</p>
+</div>
+<div class="border-l-4 border-status-yellow pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Pendentes</p>
+<p class="text-xl font-black text-status-yellow">02</p>
+</div>
+</div>
+</div>
+<button class="w-full py-4 bg-gray-50 text-deep-blue text-[0.65rem] font-black uppercase tracking-widest border-t border-gray-100 hover:bg-deep-blue hover:text-white transition-all flex items-center justify-center gap-2">
+                    Ver Detalhes <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<!-- Card 4 (Sede) -->
+<div class="bg-white border border-gray-200/60 rounded-xl overflow-hidden flex flex-col transition-all hover:shadow-xl hover:-translate-y-1 group card-shadow">
+<div class="p-4 border-b border-gray-50 flex justify-between items-center bg-gray-50/30">
+<span class="text-[0.6rem] font-black bg-gray-500 text-white px-2 py-0.5 rounded-sm uppercase">Sede</span>
+<span class="text-[0.6rem] font-black text-status-green bg-status-green/10 px-2 py-0.5 rounded-sm uppercase ml-2 border border-status-green/20">Status: Ativa</span>
+<button class="ml-auto w-6 h-6 rounded-full bg-white border border-gray-200 flex items-center justify-center hover:bg-deep-blue hover:text-white transition-colors group/btn" title="Cadastrar Equipe"><span class="material-symbols-outlined text-[16px] text-deep-blue group-hover/btn:text-white">add</span></button></div>
+<div class="p-5 flex-1">
+<h3 class="text-sm font-black text-deep-blue mb-1 leading-tight group-hover:text-neon-orange transition-colors">Matriz Econgen</h3>
+<p class="text-[0.65rem] text-gray-500 truncate mb-6">Av. Faria Lima, 3500 - Itaim Bibi/SP</p>
+<div class="grid grid-cols-2 gap-x-4 gap-y-5 mb-2">
+<div class="border-l-4 border-status-red pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Para Hoje</p>
+<p class="text-xl font-black text-status-red">05</p>
+</div>
+<div class="border-l-4 border-status-orange pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Urgente</p>
+<p class="text-xl font-black text-status-orange">02</p>
+</div>
+<div class="border-l-4 border-status-green pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Comprado</p>
+<p class="text-xl font-black text-status-green">88</p>
+</div>
+<div class="border-l-4 border-status-yellow pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Pendentes</p>
+<p class="text-xl font-black text-status-yellow">12</p>
+</div>
+</div>
+</div>
+<button class="w-full py-4 bg-gray-50 text-deep-blue text-[0.65rem] font-black uppercase tracking-widest border-t border-gray-100 hover:bg-deep-blue hover:text-white transition-all flex items-center justify-center gap-2">
+                    Ver Detalhes <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<!-- Repeated and Additional Cards to fill view and demonstrate scroll -->
+<div class="bg-white border border-gray-200/60 rounded-xl overflow-hidden flex flex-col transition-all hover:shadow-xl hover:-translate-y-1 group card-shadow">
+<div class="p-4 border-b border-gray-50 flex justify-between items-center bg-gray-50/30">
+<span class="text-[0.6rem] font-black bg-deep-blue text-white px-2 py-0.5 rounded-sm uppercase">Depósito</span>
+<span class="text-[0.6rem] font-black text-status-green bg-status-green/10 px-2 py-0.5 rounded-sm uppercase ml-2 border border-status-green/20">Status: Ativa</span>
+<button class="ml-auto w-6 h-6 rounded-full bg-white border border-gray-200 flex items-center justify-center hover:bg-deep-blue hover:text-white transition-colors group/btn" title="Cadastrar Equipe"><span class="material-symbols-outlined text-[16px] text-deep-blue group-hover/btn:text-white">add</span></button></div>
+<div class="p-5 flex-1">
+<h3 class="text-sm font-black text-deep-blue mb-1 leading-tight group-hover:text-neon-orange transition-colors">Cajamar Logística</h3>
+<p class="text-[0.65rem] text-gray-500 truncate mb-6">Rod. Anhanguera, KM 26 - Cajamar/SP</p>
+<div class="grid grid-cols-2 gap-x-4 gap-y-5 mb-2">
+<div class="border-l-4 border-status-red pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Para Hoje</p>
+<p class="text-xl font-black text-status-red">04</p>
+</div>
+<div class="border-l-4 border-status-orange pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Urgente</p>
+<p class="text-xl font-black text-status-orange">22</p>
+</div>
+<div class="border-l-4 border-status-green pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Comprado</p>
+<p class="text-xl font-black text-status-green">156</p>
+</div>
+<div class="border-l-4 border-status-yellow pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Pendentes</p>
+<p class="text-xl font-black text-status-yellow">44</p>
+</div>
+</div>
+</div>
+<button class="w-full py-4 bg-gray-50 text-deep-blue text-[0.65rem] font-black uppercase tracking-widest border-t border-gray-100 hover:bg-deep-blue hover:text-white transition-all flex items-center justify-center gap-2">
+                    Ver Detalhes <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<div class="bg-white border border-gray-200/60 rounded-xl overflow-hidden flex flex-col transition-all hover:shadow-xl hover:-translate-y-1 group card-shadow">
+<div class="p-4 border-b border-gray-50 flex justify-between items-center bg-gray-50/30">
+<span class="text-[0.6rem] font-black text-white px-2 py-0.5 rounded-sm uppercase bg-neon-orange">Obra</span>
+<span class="text-[0.6rem] font-black text-status-green bg-status-green/10 px-2 py-0.5 rounded-sm uppercase ml-2 border border-status-green/20">Status: Ativa</span>
+<button class="ml-auto w-6 h-6 rounded-full bg-white border border-gray-200 flex items-center justify-center hover:bg-deep-blue hover:text-white transition-colors group/btn" title="Cadastrar Equipe"><span class="material-symbols-outlined text-[16px] text-deep-blue group-hover/btn:text-white">add</span></button></div>
+<div class="p-5 flex-1">
+<h3 class="text-sm font-black text-deep-blue mb-1 leading-tight group-hover:text-neon-orange transition-colors">Shop. Metrô Tatuapé</h3>
+<p class="text-[0.65rem] text-gray-500 truncate mb-6">Rua Domingos Agostim, 91 - Tatuapé/SP</p>
+<div class="grid grid-cols-2 gap-x-4 gap-y-5 mb-2">
+<div class="border-l-4 border-status-red pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Para Hoje</p>
+<p class="text-xl font-black text-status-red">02</p>
+</div>
+<div class="border-l-4 border-status-orange pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Urgente</p>
+<p class="text-xl font-black text-status-orange">01</p>
+</div>
+<div class="border-l-4 border-status-green pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Comprado</p>
+<p class="text-xl font-black text-status-green">05</p>
+</div>
+<div class="border-l-4 border-status-yellow pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Pendentes</p>
+<p class="text-xl font-black text-status-yellow">0</p>
+</div>
+</div>
+</div>
+<button class="w-full py-4 bg-gray-50 text-deep-blue text-[0.65rem] font-black uppercase tracking-widest border-t border-gray-100 hover:bg-deep-blue hover:text-white transition-all flex items-center justify-center gap-2">
+                    Ver Detalhes <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<!-- Row 2+ -->
+<div class="bg-white border border-gray-200/60 rounded-xl overflow-hidden flex flex-col transition-all hover:shadow-xl hover:-translate-y-1 group card-shadow">
+<div class="p-4 border-b border-gray-50 flex justify-between items-center bg-gray-50/30">
+<span class="text-[0.6rem] font-black text-white px-2 py-0.5 rounded-sm uppercase bg-neon-orange">Obra</span>
+<span class="text-[0.6rem] font-black text-gray-400 bg-gray-100 px-2 py-0.5 rounded-sm uppercase ml-2 border border-gray-200">Status: Desativa</span>
+<button class="ml-auto w-6 h-6 rounded-full bg-white border border-gray-200 flex items-center justify-center hover:bg-deep-blue hover:text-white transition-colors group/btn" title="Cadastrar Equipe"><span class="material-symbols-outlined text-[16px] text-deep-blue group-hover/btn:text-white">add</span></button></div>
+<div class="p-5 flex-1">
+<h3 class="text-sm font-black text-deep-blue mb-1 leading-tight group-hover:text-neon-orange transition-colors">Condomínio Maralto</h3>
+<p class="text-[0.65rem] text-gray-500 truncate mb-6">Av. Atlântica, 1200 - Santos/SP</p>
+<div class="grid grid-cols-2 gap-x-4 gap-y-5 mb-2">
+<div class="border-l-4 border-status-red pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Para Hoje</p>
+<p class="text-xl font-black text-status-red">01</p>
+</div>
+<div class="border-l-4 border-status-orange pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Urgente</p>
+<p class="text-xl font-black text-status-orange">11</p>
+</div>
+<div class="border-l-4 border-status-green pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Comprado</p>
+<p class="text-xl font-black text-status-green">32</p>
+</div>
+<div class="border-l-4 border-status-yellow pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Pendentes</p>
+<p class="text-xl font-black text-status-yellow">09</p>
+</div>
+</div>
+</div>
+<button class="w-full py-4 bg-gray-50 text-deep-blue text-[0.65rem] font-black uppercase tracking-widest border-t border-gray-100 hover:bg-deep-blue hover:text-white transition-all flex items-center justify-center gap-2">
+                    Ver Detalhes <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<div class="bg-white border border-gray-200/60 rounded-xl overflow-hidden flex flex-col transition-all hover:shadow-xl hover:-translate-y-1 group card-shadow">
+<div class="p-4 border-b border-gray-50 flex justify-between items-center bg-gray-50/30">
+<span class="text-[0.6rem] font-black bg-deep-blue text-white px-2 py-0.5 rounded-sm uppercase">Depósito</span>
+<span class="text-[0.6rem] font-black text-status-green bg-status-green/10 px-2 py-0.5 rounded-sm uppercase ml-2 border border-status-green/20">Status: Ativa</span>
+<button class="ml-auto w-6 h-6 rounded-full bg-white border border-gray-200 flex items-center justify-center hover:bg-deep-blue hover:text-white transition-colors group/btn" title="Cadastrar Equipe"><span class="material-symbols-outlined text-[16px] text-deep-blue group-hover/btn:text-white">add</span></button></div>
+<div class="p-5 flex-1">
+<h3 class="text-sm font-black text-deep-blue mb-1 leading-tight group-hover:text-neon-orange transition-colors">Estoque Seco Sul</h3>
+<p class="text-[0.65rem] text-gray-500 truncate mb-6">Av. Interlagos, 450 - São Paulo/SP</p>
+<div class="grid grid-cols-2 gap-x-4 gap-y-5 mb-2">
+<div class="border-l-4 border-status-red pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Para Hoje</p>
+<p class="text-xl font-black text-status-red">00</p>
+</div>
+<div class="border-l-4 border-status-orange pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Urgente</p>
+<p class="text-xl font-black text-status-orange">02</p>
+</div>
+<div class="border-l-4 border-status-green pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Comprado</p>
+<p class="text-xl font-black text-status-green">144</p>
+</div>
+<div class="border-l-4 border-status-yellow pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Pendentes</p>
+<p class="text-xl font-black text-status-yellow">0</p>
+</div>
+</div>
+</div>
+<button class="w-full py-4 bg-gray-50 text-deep-blue text-[0.65rem] font-black uppercase tracking-widest border-t border-gray-100 hover:bg-deep-blue hover:text-white transition-all flex items-center justify-center gap-2">
+                    Ver Detalhes <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<!-- Extra cards to force scrolling -->
+<div class="bg-white border border-gray-200/60 rounded-xl overflow-hidden flex flex-col transition-all hover:shadow-xl hover:-translate-y-1 group card-shadow">
+<div class="p-4 border-b border-gray-50 flex justify-between items-center bg-gray-50/30">
+<span class="text-[0.6rem] font-black text-white px-2 py-0.5 rounded-sm uppercase bg-neon-orange">Obra</span>
+<span class="text-[0.6rem] font-black text-status-green bg-status-green/10 px-2 py-0.5 rounded-sm uppercase ml-2 border border-status-green/20">Status: Ativa</span>
+<button class="ml-auto w-6 h-6 rounded-full bg-white border border-gray-200 flex items-center justify-center hover:bg-deep-blue hover:text-white transition-colors group/btn" title="Cadastrar Equipe"><span class="material-symbols-outlined text-[16px] text-deep-blue group-hover/btn:text-white">add</span></button></div>
+<div class="p-5 flex-1">
+<h3 class="text-sm font-black text-deep-blue mb-1 leading-tight group-hover:text-neon-orange transition-colors">Galpão Logístico Alpha</h3>
+<p class="text-[0.65rem] text-gray-500 truncate mb-6">Via de Acesso, 500 - Barueri/SP</p>
+<div class="grid grid-cols-2 gap-x-4 gap-y-5 mb-2">
+<div class="border-l-4 border-status-red pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Para Hoje</p>
+<p class="text-xl font-black text-status-red">03</p>
+</div>
+<div class="border-l-4 border-status-orange pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Urgente</p>
+<p class="text-xl font-black text-status-orange">07</p>
+</div>
+<div class="border-l-4 border-status-green pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Comprado</p>
+<p class="text-xl font-black text-status-green">52</p>
+</div>
+<div class="border-l-4 border-status-yellow pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Pendentes</p>
+<p class="text-xl font-black text-status-yellow">18</p>
+</div>
+</div>
+</div>
+<button class="w-full py-4 bg-gray-50 text-deep-blue text-[0.65rem] font-black uppercase tracking-widest border-t border-gray-100 hover:bg-deep-blue hover:text-white transition-all flex items-center justify-center gap-2">
+                    Ver Detalhes <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<div class="bg-white border border-gray-200/60 rounded-xl overflow-hidden flex flex-col transition-all hover:shadow-xl hover:-translate-y-1 group card-shadow">
+<div class="p-4 border-b border-gray-50 flex justify-between items-center bg-gray-50/30">
+<span class="text-[0.6rem] font-black text-white px-2 py-0.5 rounded-sm uppercase bg-neon-orange">Obra</span>
+<span class="text-[0.6rem] font-black text-status-green bg-status-green/10 px-2 py-0.5 rounded-sm uppercase ml-2 border border-status-green/20">Status: Ativa</span>
+<button class="ml-auto w-6 h-6 rounded-full bg-white border border-gray-200 flex items-center justify-center hover:bg-deep-blue hover:text-white transition-colors group/btn" title="Cadastrar Equipe"><span class="material-symbols-outlined text-[16px] text-deep-blue group-hover/btn:text-white">add</span></button></div>
+<div class="p-5 flex-1">
+<h3 class="text-sm font-black text-deep-blue mb-1 leading-tight group-hover:text-neon-orange transition-colors">Reforma Escritório Sul</h3>
+<p class="text-[0.65rem] text-gray-500 truncate mb-6">Rua Verbo Divino, 1000 - Chácara Sto. Antônio/SP</p>
+<div class="grid grid-cols-2 gap-x-4 gap-y-5 mb-2">
+<div class="border-l-4 border-status-red pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Para Hoje</p>
+<p class="text-xl font-black text-status-red">08</p>
+</div>
+<div class="border-l-4 border-status-orange pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Urgente</p>
+<p class="text-xl font-black text-status-orange">01</p>
+</div>
+<div class="border-l-4 border-status-green pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Comprado</p>
+<p class="text-xl font-black text-status-green">14</p>
+</div>
+<div class="border-l-4 border-status-yellow pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Pendentes</p>
+<p class="text-xl font-black text-status-yellow">03</p>
+</div>
+</div>
+</div>
+<button class="w-full py-4 bg-gray-50 text-deep-blue text-[0.65rem] font-black uppercase tracking-widest border-t border-gray-100 hover:bg-deep-blue hover:text-white transition-all flex items-center justify-center gap-2">
+                    Ver Detalhes <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<div class="bg-white border border-gray-200/60 rounded-xl overflow-hidden flex flex-col transition-all hover:shadow-xl hover:-translate-y-1 group card-shadow">
+<div class="p-4 border-b border-gray-50 flex justify-between items-center bg-gray-50/30">
+<span class="text-[0.6rem] font-black bg-deep-blue text-white px-2 py-0.5 rounded-sm uppercase">Depósito</span>
+<span class="text-[0.6rem] font-black text-status-green bg-status-green/10 px-2 py-0.5 rounded-sm uppercase ml-2 border border-status-green/20">Status: Ativa</span>
+<button class="ml-auto w-6 h-6 rounded-full bg-white border border-gray-200 flex items-center justify-center hover:bg-deep-blue hover:text-white transition-colors group/btn" title="Cadastrar Equipe"><span class="material-symbols-outlined text-[16px] text-deep-blue group-hover/btn:text-white">add</span></button></div>
+<div class="p-5 flex-1">
+<h3 class="text-sm font-black text-deep-blue mb-1 leading-tight group-hover:text-neon-orange transition-colors">Centro Distr. Leste</h3>
+<p class="text-[0.65rem] text-gray-500 truncate mb-6">Av. Aricanduva, 5500 - São Paulo/SP</p>
+<div class="grid grid-cols-2 gap-x-4 gap-y-5 mb-2">
+<div class="border-l-4 border-status-red pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Para Hoje</p>
+<p class="text-xl font-black text-status-red">15</p>
+</div>
+<div class="border-l-4 border-status-orange pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Urgente</p>
+<p class="text-xl font-black text-status-orange">10</p>
+</div>
+<div class="border-l-4 border-status-green pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Comprado</p>
+<p class="text-xl font-black text-status-green">98</p>
+</div>
+<div class="border-l-4 border-status-yellow pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Pendentes</p>
+<p class="text-xl font-black text-status-yellow">25</p>
+</div>
+</div>
+</div>
+<button class="w-full py-4 bg-gray-50 text-deep-blue text-[0.65rem] font-black uppercase tracking-widest border-t border-gray-100 hover:bg-deep-blue hover:text-white transition-all flex items-center justify-center gap-2">
+                    Ver Detalhes <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<div class="bg-white border border-gray-200/60 rounded-xl overflow-hidden flex flex-col transition-all hover:shadow-xl hover:-translate-y-1 group card-shadow">
+<div class="p-4 border-b border-gray-50 flex justify-between items-center bg-gray-50/30">
+<span class="text-[0.6rem] font-black text-white px-2 py-0.5 rounded-sm uppercase bg-neon-orange">Obra</span>
+<span class="text-[0.6rem] font-black text-status-green bg-status-green/10 px-2 py-0.5 rounded-sm uppercase ml-2 border border-status-green/20">Status: Ativa</span>
+<button class="ml-auto w-6 h-6 rounded-full bg-white border border-gray-200 flex items-center justify-center hover:bg-deep-blue hover:text-white transition-colors group/btn" title="Cadastrar Equipe"><span class="material-symbols-outlined text-[16px] text-deep-blue group-hover/btn:text-white">add</span></button></div>
+<div class="p-5 flex-1">
+<h3 class="text-sm font-black text-deep-blue mb-1 leading-tight group-hover:text-neon-orange transition-colors">Residencial Vista Mar</h3>
+<p class="text-[0.65rem] text-gray-500 truncate mb-6">Av. Beira Mar, 450 - Guarujá/SP</p>
+<div class="grid grid-cols-2 gap-x-4 gap-y-5 mb-2">
+<div class="border-l-4 border-status-red pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Para Hoje</p>
+<p class="text-xl font-black text-status-red">02</p>
+</div>
+<div class="border-l-4 border-status-orange pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Urgente</p>
+<p class="text-xl font-black text-status-orange">05</p>
+</div>
+<div class="border-l-4 border-status-green pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Comprado</p>
+<p class="text-xl font-black text-status-green">21</p>
+</div>
+<div class="border-l-4 border-status-yellow pl-3">
+<p class="text-[0.55rem] font-black text-gray-400 uppercase">Pendentes</p>
+<p class="text-xl font-black text-status-yellow">04</p>
+</div>
+</div>
+</div>
+<button class="w-full py-4 bg-gray-50 text-deep-blue text-[0.65rem] font-black uppercase tracking-widest border-t border-gray-100 hover:bg-deep-blue hover:text-white transition-all flex items-center justify-center gap-2">
+                    Ver Detalhes <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Persistent Bottom Footer (Legend) -->
+<footer class="h-14 border-t border-gray-100 bg-white flex items-center px-10 shrink-0">
+<div class="flex items-center gap-3 border-r border-gray-100 pr-8 mr-8">
+<span class="material-symbols-outlined text-status-red text-xl">report</span>
+<span class="text-[0.65rem] font-black text-deep-blue uppercase tracking-widest">Prioridade Máxima Ativa</span>
+</div>
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2">
+<div class="w-2.5 h-2.5 rounded-full bg-status-red"></div>
+<span class="text-[0.6rem] font-bold text-gray-500 uppercase">Para Hoje</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2.5 h-2.5 rounded-full bg-status-orange"></div>
+<span class="text-[0.6rem] font-bold text-gray-500 uppercase">Urgente</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2.5 h-2.5 rounded-full bg-status-green"></div>
+<span class="text-[0.6rem] font-bold text-gray-500 uppercase">Comprado</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2.5 h-2.5 rounded-full bg-status-yellow"></div>
+<span class="text-[0.6rem] font-bold text-gray-500 uppercase">Aguardando Envio (Pendentes)</span>
+</div>
+</div>
+<div class="ml-auto text-[0.6rem] font-bold text-gray-300 uppercase tracking-widest">
+            Sync: Agora • Server: SP-01
+        </div>
+</footer>
+</main>
+</body></html>

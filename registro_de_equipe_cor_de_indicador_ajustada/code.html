@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "surface-container-lowest": "#ffffff",
+                      "background": "#f9f9fb",
+                      "tertiary-fixed-dim": "#ffb4a7",
+                      "inverse-surface": "#2f3132",
+                      "on-surface-variant": "#464651",
+                      "on-primary-container": "#777cd3",
+                      "tertiary-container": "#3f0301",
+                      "on-background": "#1a1c1d",
+                      "primary-fixed-dim": "#c0c1ff",
+                      "surface-container-low": "#f3f3f5",
+                      "primary-fixed": "#e1e0ff",
+                      "tertiary-fixed": "#ffdad4",
+                      "on-primary-fixed-variant": "#393d90",
+                      "surface": "#f9f9fb",
+                      "inverse-primary": "#c0c1ff",
+                      "surface-dim": "#d9dadc",
+                      "on-secondary-fixed-variant": "#753400",
+                      "on-tertiary-fixed": "#3f0301",
+                      "surface-container-highest": "#e2e2e4",
+                      "outline": "#777682",
+                      "primary-container": "#070666",
+                      "tertiary": "#000000",
+                      "secondary-container": "#fe924e",
+                      "on-secondary": "#ffffff",
+                      "surface-container-high": "#e8e8ea",
+                      "surface-container": "#eeeef0",
+                      "on-tertiary-fixed-variant": "#7a2e23",
+                      "on-secondary-container": "#6d3000",
+                      "primary": "#030063",
+                      "outline-variant": "#c7c5d3",
+                      "surface-variant": "#e2e2e4",
+                      "on-secondary-fixed": "#321200",
+                      "on-primary-fixed": "#070666",
+                      "secondary-fixed": "#ffdbc9",
+                      "inverse-on-surface": "#f0f0f2",
+                      "on-error-container": "#93000a",
+                      "error-container": "#ffdad6",
+                      "surface-bright": "#f9f9fb",
+                      "on-tertiary-container": "#c7695a",
+                      "surface-tint": "#5256aa",
+                      "error": "#ba1a1a",
+                      "on-surface": "#1a1c1d",
+                      "secondary": "#9a4600",
+                      "secondary-fixed-dim": "#ffb68c",
+                      "on-tertiary": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0px",
+                      "lg": "0px",
+                      "xl": "0px",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Manrope"],
+                      "body": ["Manrope"],
+                      "label": ["Manrope"]
+              }
+            },
+          }
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #e2e2e4; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #c7c5d3; }
+        .table-scroll::-webkit-scrollbar { width: 4px; }
+        .table-scroll::-webkit-scrollbar-thumb { background: #030063; }
+    </style>
+</head>
+<body class="bg-background text-on-background overflow-hidden h-screen flex">
+<!-- SideNavBar (Darker Navy Style #000033) -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-[#000033] flex flex-col shadow-2xl z-50">
+<div class="flex flex-col items-center w-full px-6 py-8">
+<a href="../index.html" class="text-3xl font-bold text-white tracking-widest text-center hover:opacity-80 transition-opacity">ENGECON</a>
+<span class="text-[9px] text-white/40 uppercase tracking-[0.3em] mt-1">Gestão de Reformas</span>
+<div class="w-full h-px bg-white/10 mt-8"></div>
+</div>
+<nav class="flex flex-col h-full overflow-y-auto px-2">
+<!-- Resumo Geral with Colaboradores sub-item -->
+<div class="flex flex-col">
+<a class="text-white/70 py-3 px-4 font-manrope uppercase tracking-wider text-xs font-semibold hover:bg-white/5 hover:text-white transition-all flex items-center gap-4" href="../resumo_geral_cadastro_de_equipe_nos_boxes/code.html">
+<span class="material-symbols-outlined text-lg" data-icon="dashboard">grid_view</span>
+<span>Resumo Geral</span>
+</a>
+<div class="flex flex-col pl-12 mt-1 gap-1 mb-2">
+<a class="py-2 text-[11px] font-bold text-white uppercase tracking-widest border-l border-secondary pl-4" href="../listagem_de_colaboradores_rolagem_ajustada_v2/code.html">Colaboradores</a>
+</div>
+</div>
+<a class="text-white/70 py-3 px-4 font-manrope uppercase tracking-wider text-xs font-semibold hover:bg-white/5 hover:text-white transition-all flex items-center gap-4" href="../movimenta_es_vers_o_final_limpa/code.html">
+<span class="material-symbols-outlined text-lg" data-icon="swap_horiz">swap_horiz</span>
+<span>Movimentações</span>
+</a>
+<a class="text-white/70 py-3 px-4 font-manrope uppercase tracking-wider text-xs font-semibold hover:bg-white/5 hover:text-white transition-all flex items-center gap-4" href="../controle_de_estoque_financeiro_com_coluna_editor/code.html">
+<span class="material-symbols-outlined text-lg" data-icon="inventory_2">inventory_2</span>
+<span>Estoque</span>
+</a>
+<a class="text-white/70 py-3 px-4 font-manrope uppercase tracking-wider text-xs font-semibold hover:bg-white/5 hover:text-white transition-all flex items-center gap-4" href="../relat_rio_de_obra_menu_lateral_refinado_final_v2/code.html">
+<span class="material-symbols-outlined text-lg" data-icon="construction">domain</span>
+<span>Obras/Depósitos</span>
+</a>
+<a class="text-white/70 py-3 px-4 font-manrope uppercase tracking-wider text-xs font-semibold hover:bg-white/5 hover:text-white transition-all flex items-center gap-4" href="../registro_de_equipe_cor_de_indicador_ajustada/code.html">
+<span class="material-symbols-outlined text-lg" data-icon="group">group</span>
+<span>Usuários</span>
+</a>
+<a class="text-white/70 py-3 px-4 font-manrope uppercase tracking-wider text-xs font-semibold hover:bg-white/5 hover:text-white transition-all flex items-center gap-4" href="../listagem_de_colaboradores_rolagem_ajustada_v2/code.html">
+<span class="material-symbols-outlined text-lg" data-icon="shopping_cart">shopping_cart</span>
+<span>Compras</span>
+</a>
+<a class="text-white/70 py-3 px-4 font-manrope uppercase tracking-wider text-xs font-semibold hover:bg-white/5 hover:text-white transition-all flex items-center gap-4" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="analytics">bar_chart</span>
+<span>Relatórios</span>
+</a>
+<a class="text-white/70 py-3 px-4 font-manrope uppercase tracking-wider text-xs font-semibold hover:bg-white/5 hover:text-white transition-all flex items-center gap-4" href="../configura_es_sincroniza_o_visual_absoluta/code.html">
+<span class="material-symbols-outlined text-lg" data-icon="settings">settings</span>
+<span>Configurações</span>
+</a>
+</nav>
+<div class="mt-auto p-6 bg-black/20">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-secondary-container rounded-sm flex items-center justify-center text-on-secondary-container font-black text-xs">JP</div>
+<div class="flex flex-col overflow-hidden">
+<span class="text-white font-bold text-xs uppercase truncate">João Pereira</span>
+<span class="text-white/40 text-[9px] uppercase tracking-tighter">Gestor de Obras</span>
+</div>
+<span class="material-symbols-outlined text-white/30 ml-auto cursor-pointer hover:text-white" data-icon="logout">logout</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 w-[calc(100%-16rem)] h-screen flex flex-col">
+<!-- TopNavBar - Refined industrial look -->
+<header class="h-20 bg-white sticky top-0 z-40 px-8 flex items-center justify-between border-b-2 border-[#030063]/10">
+<div class="flex items-center gap-6 flex-1">
+<div class="relative w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-sm" data-icon="search">search</span>
+<input class="w-full bg-surface-container-low border border-surface-container-high rounded-sm py-2 pl-9 pr-4 text-xs focus:ring-0 focus:border-primary font-body" placeholder="Procurar colaborador..." type="text"/>
+</div>
+<div class="h-8 w-px bg-surface-container-high"></div>
+<div class="flex items-center gap-3">
+<div class="flex flex-col">
+<span class="text-[9px] font-black text-outline uppercase tracking-widest mb-1">Início</span>
+<input class="bg-surface-container-low border border-surface-container-high rounded-sm text-[10px] font-bold text-primary px-2 py-1 focus:ring-0 focus:border-primary" type="date"/>
+</div>
+<div class="flex flex-col">
+<span class="text-[9px] font-black text-outline uppercase tracking-widest mb-1">Fim</span>
+<input class="bg-surface-container-low border border-surface-container-high rounded-sm text-[10px] font-bold text-primary px-2 py-1 focus:ring-0 focus:border-primary" type="date"/>
+</div>
+</div>
+<div class="h-8 w-px bg-surface-container-high"></div>
+<!-- Stretched Worksite Container -->
+<div class="flex-1 max-w-md">
+<div class="bg-[#030063]/5 border-x-4 border-primary px-4 py-1.5 flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-[8px] font-black text-outline uppercase tracking-[0.2em]">Obra em Execução</span>
+<span class="text-sm font-black text-primary uppercase">Edifício Horizonte II - Torre Sul Central</span>
+</div>
+<span class="material-symbols-outlined text-primary/40 text-lg">location_on</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4 ml-6">
+<button class="flex items-center gap-2 border-2 px-5 py-2.5 rounded-sm font-black text-[10px] uppercase tracking-widest hover:bg-red-50 transition-all text-red-600 border-red-600">
+<span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+                    Exportar
+                </button>
+<div class="flex items-center gap-6 ml-6">
+<div class="relative flex items-center justify-center">
+<span class="material-symbols-outlined text-outline text-2xl">notifications</span>
+<div class="absolute -top-1 right-0 w-2.5 h-2.5 bg-[#ff9100] rounded-full border-2 border-white"></div>
+</div>
+<div class="h-8 w-px bg-surface-container-high"></div>
+<div class="flex items-center gap-4">
+<span class="text-sm font-black text-[#030063] uppercase">João Pereira</span>
+<div class="w-10 h-10 rounded-full overflow-hidden border border-surface-container-high shadow-sm">
+<img alt="Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0ujNIWzVT3-OGdR7Ry8Ho1x_HIihZPNa2V79sd2noIFUUSJxFoC67bhoTquvitCC-mNHeLugeZaWMaj5Vb0zArD2hF-QYm_CgYMM4HYX6dsdE1erBVlEZW1fhGGF1cljKEBsjte7AcLcM9guZv9-_g0iNs3NVh9Kz142m9NUikQxwhVbOG2HYSDnGk5UUkTOkQhH2MROVLHhcsSqiK9Jny_g3kxcbThq2dZKG7zb0yzzTSphRyCWo-AxpthMKkiiIdDIz-TqxTSM"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<section class="p-8 space-y-6 overflow-hidden flex-1 flex flex-col">
+<!-- CRUD Registration Form -->
+<div class="bg-white rounded-sm shadow-sm border border-surface-container-high overflow-hidden flex shrink-0">
+<!-- Left Action Panel -->
+<div class="w-72 bg-[#030063] p-8 text-white flex flex-col justify-center relative overflow-hidden">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-white/5 rotate-45"></div>
+<h1 class="text-2xl font-black uppercase tracking-tighter mb-1 leading-none">Controle de Mão de Obra</h1>
+<p class="text-white/40 text-[10px] font-bold uppercase tracking-widest mb-6">Gestão Operacional Direta</p>
+<div class="grid grid-cols-2 gap-6">
+<div>
+<span class="text-[8px] uppercase font-black tracking-widest text-white/40 block mb-1">Efetivo Ativo</span>
+<span class="text-2xl font-black">42</span>
+</div>
+<div>
+<span class="text-[8px] uppercase font-black tracking-widest text-white/40 block mb-1">Custo Diário</span>
+<span class="text-2xl font-black text-[#ff9100]">R$ 6.8k</span>
+</div>
+</div>
+</div>
+<!-- Form Section -->
+<div class="flex-1 p-8 bg-white self-center">
+<form class="grid grid-cols-12 gap-x-6 gap-y-4 items-end">
+<div class="col-span-3">
+<label class="block text-[9px] font-black text-outline uppercase tracking-widest mb-2">Data do Trabalho</label>
+<input class="w-full bg-surface-container-low border border-surface-container-high rounded-sm px-3 py-2.5 text-xs focus:ring-0 focus:border-primary font-body" type="date"/>
+</div>
+<div class="col-span-5">
+<label class="block text-[9px] font-black text-outline uppercase tracking-widest mb-2">Nome do Colaborador</label>
+<input class="w-full bg-surface-container-low border border-surface-container-high rounded-sm px-3 py-2.5 text-xs focus:ring-0 focus:border-primary font-body" placeholder="Ex: Roberto Silva" type="text"/>
+</div>
+<div class="col-span-2">
+<label class="block text-[9px] font-black text-outline uppercase tracking-widest mb-2">Cargo / Função</label>
+<select class="w-full bg-surface-container-low border border-surface-container-high rounded-sm px-3 py-2.5 text-xs focus:ring-0 focus:border-primary font-body">
+<option>Mestre de Obras</option>
+<option>Pedreiro</option>
+<option>Servente</option>
+<option>Armador</option>
+<option>Carpinteiro</option>
+</select>
+</div>
+<div class="col-span-2">
+<label class="block text-[9px] font-black text-outline uppercase tracking-widest mb-2">Valor Diário (R$)</label>
+<input class="w-full bg-surface-container-low border border-surface-container-high rounded-sm px-3 py-2.5 text-xs focus:ring-0 focus:border-primary font-mono" placeholder="0,00" type="text"/>
+</div>
+<div class="col-span-12 flex justify-end gap-3 mt-2">
+<button class="flex items-center gap-2 bg-white text-primary hover:bg-primary/5 transition-all px-6 py-3 rounded-sm font-black text-[10px] uppercase tracking-[0.15em] border-2 border-primary/20 hover:border-primary"><span class="material-symbols-outlined text-sm">sync</span><span>Trocar Obra</span></button><button class="flex items-center gap-2 bg-white text-primary hover:bg-primary/5 transition-all px-6 py-3 rounded-sm font-black text-[10px] uppercase tracking-[0.15em] border-2 border-primary/20 hover:border-primary"><span class="material-symbols-outlined text-sm">group</span><span>Ver Lista de Colaboradores</span></button>
+<button class="bg-[#ff9100] text-on-secondary hover:brightness-110 transition-all px-10 py-3 rounded-sm font-black text-[10px] uppercase tracking-[0.2em] shadow-[4px_4px_0px_0px_rgba(255,145,0,0.3)]">
+                                SALVAR REGISTRO
+                            </button>
+</div>
+</form>
+</div>
+</div>
+<!-- Registered Staff Table -->
+<div class="flex flex-col flex-1 bg-white rounded-sm shadow-sm border border-surface-container-high overflow-hidden">
+<div class="px-8 py-5 bg-[#030063] flex items-center justify-between shrink-0">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary-container text-xl" data-icon="list_alt">format_list_bulleted</span>
+<h3 class="text-white text-[11px] font-black uppercase tracking-[0.25em]">Listagem Detalhada de Colaboradores</h3>
+</div>
+<div class="flex gap-6 items-center">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-green-500 ring-2 ring-white/20"></span>
+<span class="text-[9px] font-black text-white uppercase tracking-widest">Colaborador Ativo</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-red-500 ring-2 ring-white/20"></span>
+<span class="text-[9px] font-black text-white/50 uppercase tracking-widest">Inativo</span>
+</div>
+</div>
+</div>
+<div class="overflow-y-auto flex-1 table-scroll">
+<table class="w-full text-left border-collapse">
+<thead class="sticky top-0 bg-surface-container-low z-10">
+<tr>
+<th class="px-8 py-4 text-[9px] font-black text-outline uppercase tracking-widest border-b border-surface-container-high">DATA</th>
+<th class="px-8 py-4 text-[9px] font-black text-outline uppercase tracking-widest border-b border-surface-container-high">COLABORADOR</th>
+<th class="px-8 py-4 text-[9px] font-black text-outline uppercase tracking-widest border-b border-surface-container-high">FUNÇÃO</th>
+<th class="px-8 py-4 text-[9px] font-black text-outline uppercase tracking-widest border-b border-surface-container-high text-right">VALOR DIA</th>
+<th class="px-8 py-4 text-[9px] font-black text-outline uppercase tracking-widest border-b border-surface-container-high">OBRA DESTINO</th>
+<th class="px-8 py-4 text-[9px] font-black text-outline uppercase tracking-widest border-b border-surface-container-high">STATUS</th>
+<th class="px-8 py-4 text-[9px] font-black text-outline uppercase tracking-widest border-b border-surface-container-high text-center">AÇÕES</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-lowest transition-colors group">
+<td class="px-8 py-4 font-mono text-[10px] text-outline">24/05/2024</td>
+<td class="px-8 py-4 flex items-center gap-3">
+<div class="w-8 h-8 rounded-sm bg-primary text-white flex items-center justify-center text-[10px] font-bold">RS</div>
+<span class="text-xs font-bold text-primary uppercase">Roberto Silva</span>
+</td>
+<td class="px-8 py-4"><span class="text-[10px] font-bold text-outline uppercase">Mestre de Obras</span></td>
+<td class="px-8 py-4 font-mono text-xs font-bold text-right text-primary">R$ 280,00</td>
+<td class="px-8 py-4 text-[10px] font-bold text-outline uppercase">Edifício Horizonte II</td>
+<td class="px-8 py-4">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-green-500"></span>
+<span class="text-[9px] font-black uppercase text-green-700">Ativo</span>
+</div>
+</td>
+<td class="px-8 py-4">
+<div class="flex justify-center gap-3">
+<button class="p-1.5 hover:bg-primary/10 rounded-sm text-outline hover:text-primary transition-all"><span class="material-symbols-outlined text-base">edit</span></button>
+<button class="p-1.5 hover:bg-error/10 rounded-sm text-outline hover:text-error transition-all"><span class="material-symbols-outlined text-base">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-lowest transition-colors group">
+<td class="px-8 py-4 font-mono text-[10px] text-outline">24/05/2024</td>
+<td class="px-8 py-4 flex items-center gap-3">
+<div class="w-8 h-8 rounded-sm bg-primary text-white flex items-center justify-center text-[10px] font-bold">AM</div>
+<span class="text-xs font-bold text-primary uppercase">Antônio Mendes</span>
+</td>
+<td class="px-8 py-4"><span class="text-[10px] font-bold text-outline uppercase">Pedreiro</span></td>
+<td class="px-8 py-4 font-mono text-xs font-bold text-right text-primary">R$ 195,00</td>
+<td class="px-8 py-4 text-[10px] font-bold text-outline uppercase">Edifício Horizonte II</td>
+<td class="px-8 py-4">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-green-500"></span>
+<span class="text-[9px] font-black uppercase text-green-700">Ativo</span>
+</div>
+</td>
+<td class="px-8 py-4">
+<div class="flex justify-center gap-3">
+<button class="p-1.5 hover:bg-primary/10 rounded-sm text-outline hover:text-primary transition-all"><span class="material-symbols-outlined text-base">edit</span></button>
+<button class="p-1.5 hover:bg-error/10 rounded-sm text-outline hover:text-error transition-all"><span class="material-symbols-outlined text-base">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 3 - Inativo Example -->
+<tr class="hover:bg-surface-container-lowest transition-colors group">
+<td class="px-8 py-4 font-mono text-[10px] text-outline">24/05/2024</td>
+<td class="px-8 py-4 flex items-center gap-3">
+<div class="w-8 h-8 rounded-sm bg-surface-container-high text-outline flex items-center justify-center text-[10px] font-bold">LC</div>
+<span class="text-xs font-bold text-outline uppercase">Lucas Cavalcanti</span>
+</td>
+<td class="px-8 py-4"><span class="text-[10px] font-bold text-outline uppercase">Servente</span></td>
+<td class="px-8 py-4 font-mono text-xs font-bold text-right text-outline">R$ 130,00</td>
+<td class="px-8 py-4 text-[10px] font-bold text-outline uppercase">Edifício Horizonte II</td>
+<td class="px-8 py-4">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-red-500"></span>
+<span class="text-[9px] font-black uppercase text-red-700">Inativo</span>
+</div>
+</td>
+<td class="px-8 py-4">
+<div class="flex justify-center gap-3">
+<button class="p-1.5 hover:bg-primary/10 rounded-sm text-outline hover:text-primary transition-all"><span class="material-symbols-outlined text-base">edit</span></button>
+<button class="p-1.5 hover:bg-error/10 rounded-sm text-outline hover:text-error transition-all"><span class="material-symbols-outlined text-base">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Fill rows for scroll 4 -->
+<tr class="hover:bg-surface-container-lowest transition-colors group">
+<td class="px-8 py-4 font-mono text-[10px] text-outline">24/05/2024</td>
+<td class="px-8 py-4 flex items-center gap-3"><div class="w-8 h-8 rounded-sm bg-primary text-white flex items-center justify-center text-[10px] font-bold">MC</div><span class="text-xs font-bold text-primary uppercase">Marcos Costa</span></td>
+<td class="px-8 py-4"><span class="text-[10px] font-bold text-outline uppercase">Carpinteiro</span></td>
+<td class="px-8 py-4 font-mono text-xs font-bold text-right text-primary">R$ 185,00</td>
+<td class="px-8 py-4 text-[10px] font-bold text-outline uppercase">Edifício Horizonte II</td>
+<td class="px-8 py-4"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-500"></span><span class="text-[9px] font-black uppercase text-green-700">Ativo</span></div></td>
+<td class="px-8 py-4"><div class="flex justify-center gap-3"><button class="p-1.5 hover:bg-primary/10 rounded-sm text-outline hover:text-primary transition-all"><span class="material-symbols-outlined text-base">edit</span></button><button class="p-1.5 hover:bg-error/10 rounded-sm text-outline hover:text-error transition-all"><span class="material-symbols-outlined text-base">delete</span></button></div></td>
+</tr>
+<!-- 5 -->
+<tr class="hover:bg-surface-container-lowest transition-colors group">
+<td class="px-8 py-4 font-mono text-[10px] text-outline">24/05/2024</td>
+<td class="px-8 py-4 flex items-center gap-3"><div class="w-8 h-8 rounded-sm bg-primary text-white flex items-center justify-center text-[10px] font-bold">JS</div><span class="text-xs font-bold text-primary uppercase">Jorge Santos</span></td>
+<td class="px-8 py-4"><span class="text-[10px] font-bold text-outline uppercase">Armador</span></td>
+<td class="px-8 py-4 font-mono text-xs font-bold text-right text-primary">R$ 190,00</td>
+<td class="px-8 py-4 text-[10px] font-bold text-outline uppercase">Edifício Horizonte II</td>
+<td class="px-8 py-4"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-500"></span><span class="text-[9px] font-black uppercase text-green-700">Ativo</span></div></td>
+<td class="px-8 py-4"><div class="flex justify-center gap-3"><button class="p-1.5 hover:bg-primary/10 rounded-sm text-outline hover:text-primary transition-all"><span class="material-symbols-outlined text-base">edit</span></button><button class="p-1.5 hover:bg-error/10 rounded-sm text-outline hover:text-error transition-all"><span class="material-symbols-outlined text-base">delete</span></button></div></td>
+</tr>
+<!-- 6 -->
+<tr class="hover:bg-surface-container-lowest transition-colors group">
+<td class="px-8 py-4 font-mono text-[10px] text-outline">23/05/2024</td>
+<td class="px-8 py-4 flex items-center gap-3"><div class="w-8 h-8 rounded-sm bg-primary text-white flex items-center justify-center text-[10px] font-bold">FF</div><span class="text-xs font-bold text-primary uppercase">Fábio Ferreira</span></td>
+<td class="px-8 py-4"><span class="text-[10px] font-bold text-outline uppercase">Eletricista</span></td>
+<td class="px-8 py-4 font-mono text-xs font-bold text-right text-primary">R$ 210,00</td>
+<td class="px-8 py-4 text-[10px] font-bold text-outline uppercase">Edifício Horizonte II</td>
+<td class="px-8 py-4"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-500"></span><span class="text-[9px] font-black uppercase text-green-700">Ativo</span></div></td>
+<td class="px-8 py-4"><div class="flex justify-center gap-3"><button class="p-1.5 hover:bg-primary/10 rounded-sm text-outline hover:text-primary transition-all"><span class="material-symbols-outlined text-base">edit</span></button><button class="p-1.5 hover:bg-error/10 rounded-sm text-outline hover:text-error transition-all"><span class="material-symbols-outlined text-base">delete</span></button></div></td>
+</tr>
+<!-- 7 -->
+<tr class="hover:bg-surface-container-lowest transition-colors group">
+<td class="px-8 py-4 font-mono text-[10px] text-outline">23/05/2024</td>
+<td class="px-8 py-4 flex items-center gap-3"><div class="w-8 h-8 rounded-sm bg-primary text-white flex items-center justify-center text-[10px] font-bold">RA</div><span class="text-xs font-bold text-primary uppercase">Ricardo Alves</span></td>
+<td class="px-8 py-4"><span class="text-[10px] font-bold text-outline uppercase">Encanador</span></td>
+<td class="px-8 py-4 font-mono text-xs font-bold text-right text-primary">R$ 205,00</td>
+<td class="px-8 py-4 text-[10px] font-bold text-outline uppercase">Edifício Horizonte II</td>
+<td class="px-8 py-4"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-500"></span><span class="text-[9px] font-black uppercase text-green-700">Ativo</span></div></td>
+<td class="px-8 py-4"><div class="flex justify-center gap-3"><button class="p-1.5 hover:bg-primary/10 rounded-sm text-outline hover:text-primary transition-all"><span class="material-symbols-outlined text-base">edit</span></button><button class="p-1.5 hover:bg-error/10 rounded-sm text-outline hover:text-error transition-all"><span class="material-symbols-outlined text-base">delete</span></button></div></td>
+</tr>
+<!-- 8 -->
+<tr class="hover:bg-surface-container-lowest transition-colors group">
+<td class="px-8 py-4 font-mono text-[10px] text-outline">23/05/2024</td>
+<td class="px-8 py-4 flex items-center gap-3"><div class="w-8 h-8 rounded-sm bg-primary text-white flex items-center justify-center text-[10px] font-bold">GL</div><span class="text-xs font-bold text-primary uppercase">Gabriel Lima</span></td>
+<td class="px-8 py-4"><span class="text-[10px] font-bold text-outline uppercase">Servente</span></td>
+<td class="px-8 py-4 font-mono text-xs font-bold text-right text-primary">R$ 130,00</td>
+<td class="px-8 py-4 text-[10px] font-bold text-outline uppercase">Edifício Horizonte II</td>
+<td class="px-8 py-4"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-500"></span><span class="text-[9px] font-black uppercase text-green-700">Ativo</span></div></td>
+<td class="px-8 py-4"><div class="flex justify-center gap-3"><button class="p-1.5 hover:bg-primary/10 rounded-sm text-outline hover:text-primary transition-all"><span class="material-symbols-outlined text-base">edit</span></button><button class="p-1.5 hover:bg-error/10 rounded-sm text-outline hover:text-error transition-all"><span class="material-symbols-outlined text-base">delete</span></button></div></td>
+</tr>
+<!-- 9 -->
+<tr class="hover:bg-surface-container-lowest transition-colors group">
+<td class="px-8 py-4 font-mono text-[10px] text-outline">23/05/2024</td>
+<td class="px-8 py-4 flex items-center gap-3"><div class="w-8 h-8 rounded-sm bg-primary text-white flex items-center justify-center text-[10px] font-bold">SM</div><span class="text-xs font-bold text-primary uppercase">Sandro Malta</span></td>
+<td class="px-8 py-4"><span class="text-[10px] font-bold text-outline uppercase">Mestre de Obras</span></td>
+<td class="px-8 py-4 font-mono text-xs font-bold text-right text-primary">R$ 280,00</td>
+<td class="px-8 py-4 text-[10px] font-bold text-outline uppercase">Edifício Horizonte II</td>
+<td class="px-8 py-4"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-500"></span><span class="text-[9px] font-black uppercase text-green-700">Ativo</span></div></td>
+<td class="px-8 py-4"><div class="flex justify-center gap-3"><button class="p-1.5 hover:bg-primary/10 rounded-sm text-outline hover:text-primary transition-all"><span class="material-symbols-outlined text-base">edit</span></button><button class="p-1.5 hover:bg-error/10 rounded-sm text-outline hover:text-error transition-all"><span class="material-symbols-outlined text-base">delete</span></button></div></td>
+</tr>
+<!-- 10 -->
+<tr class="hover:bg-surface-container-lowest transition-colors group">
+<td class="px-8 py-4 font-mono text-[10px] text-outline">22/05/2024</td>
+<td class="px-8 py-4 flex items-center gap-3"><div class="w-8 h-8 rounded-sm bg-primary text-white flex items-center justify-center text-[10px] font-bold">PR</div><span class="text-xs font-bold text-primary uppercase">Paulo Rocha</span></td>
+<td class="px-8 py-4"><span class="text-[10px] font-bold text-outline uppercase">Pedreiro</span></td>
+<td class="px-8 py-4 font-mono text-xs font-bold text-right text-primary">R$ 195,00</td>
+<td class="px-8 py-4 text-[10px] font-bold text-outline uppercase">Edifício Horizonte II</td>
+<td class="px-8 py-4"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-500"></span><span class="text-[9px] font-black uppercase text-green-700">Ativo</span></div></td>
+<td class="px-8 py-4"><div class="flex justify-center gap-3"><button class="p-1.5 hover:bg-primary/10 rounded-sm text-outline hover:text-primary transition-all"><span class="material-symbols-outlined text-base">edit</span></button><button class="p-1.5 hover:bg-error/10 rounded-sm text-outline hover:text-error transition-all"><span class="material-symbols-outlined text-base">delete</span></button></div></td>
+</tr>
+<!-- 11 -->
+<tr class="hover:bg-surface-container-lowest transition-colors group">
+<td class="px-8 py-4 font-mono text-[10px] text-outline">22/05/2024</td>
+<td class="px-8 py-4 flex items-center gap-3"><div class="w-8 h-8 rounded-sm bg-primary text-white flex items-center justify-center text-[10px] font-bold">OL</div><span class="text-xs font-bold text-primary uppercase">Otávio Luiz</span></td>
+<td class="px-8 py-4"><span class="text-[10px] font-bold text-outline uppercase">Armador</span></td>
+<td class="px-8 py-4 font-mono text-xs font-bold text-right text-primary">R$ 190,00</td>
+<td class="px-8 py-4 text-[10px] font-bold text-outline uppercase">Edifício Horizonte II</td>
+<td class="px-8 py-4"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-500"></span><span class="text-[9px] font-black uppercase text-green-700">Ativo</span></div></td>
+<td class="px-8 py-4"><div class="flex justify-center gap-3"><button class="p-1.5 hover:bg-primary/10 rounded-sm text-outline hover:text-primary transition-all"><span class="material-symbols-outlined text-base">edit</span></button><button class="p-1.5 hover:bg-error/10 rounded-sm text-outline hover:text-error transition-all"><span class="material-symbols-outlined text-base">delete</span></button></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Footer Pagination -->
+<div class="flex items-center justify-between py-2 shrink-0">
+<div class="flex gap-4">
+<div class="flex flex-col">
+<span class="text-[9px] font-black text-outline uppercase tracking-widest">Sincronização</span>
+<span class="text-[10px] font-bold text-primary uppercase">Base de Dados Atualizada</span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<span class="text-[10px] font-black text-outline uppercase tracking-widest">Exibindo 11 de 42 colaboradores cadastrados</span>
+<div class="flex gap-1">
+<button class="w-9 h-9 flex items-center justify-center border border-surface-container-high hover:bg-surface-container-low rounded-sm transition-colors"><span class="material-symbols-outlined text-lg">chevron_left</span></button>
+<button class="w-9 h-9 flex items-center justify-center bg-[#030063] text-white rounded-sm transition-colors"><span class="material-symbols-outlined text-lg">chevron_right</span></button>
+</div>
+</div>
+</div>
+</section>
+</main>
+</body></html>
