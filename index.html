@@ -99,11 +99,71 @@
         .architectural-gradient {
             background: linear-gradient(135deg, #0001AC 0%, #070666 100%);
         }
+        
+        /* Responsivo */
+        .sidebar {
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .sidebar.hidden-mobile {
+            transform: translateX(-100%);
+        }
+        
+        @media (min-width: 768px) {
+            .sidebar.hidden-mobile {
+                transform: translateX(0);
+            }
+            .hamburger-toggle {
+                display: none !important;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .sidebar {
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 100%;
+                max-width: 16rem;
+                z-index: 40;
+                transform: translateX(-100%);
+            }
+            
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            
+            main {
+                margin-left: 0 !important;
+            }
+            
+            .sidebar-overlay {
+                display: block;
+            }
+        }
+        
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 30;
+        }
+        
+        .sidebar-overlay.show {
+            display: block;
+        }
     </style>
 </head>
 <body class="bg-surface text-on-surface overflow-hidden">
+<!-- Overlay para mobile -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
 <!-- SIDE BAR NAVIGATION -->
-<aside class="flex flex-col h-screen fixed left-0 top-0 w-64 bg-navy-deep z-50 transition-all duration-200 ease-in-out">
+<aside class="sidebar flex flex-col h-screen fixed left-0 top-0 w-64 bg-navy-deep z-50 transition-all duration-200 ease-in-out" id="sidebar">
     <div class="pt-10 pb-6 flex flex-col items-center">
         <div class="mb-1 text-center">
             <a href="index.html" class="text-3xl font-black text-white font-manrope tracking-tighter hover:opacity-80 transition-opacity">ENGECON</a>
@@ -165,88 +225,132 @@
 </aside>
 
 <!-- Main Content -->
-<main class="ml-64 px-12 pb-12 h-screen overflow-y-auto max-w-[2560px] pt-12">
+<main class="ml-0 md:ml-64 px-4 sm:px-6 md:px-12 pb-8 sm:pb-12 h-screen overflow-y-auto max-w-[2560px] pt-16 md:pt-12">
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-toggle fixed top-4 left-4 md:hidden z-40 bg-primary text-white p-2 rounded-lg" id="hamburgerBtn">
+        <span class="material-symbols-outlined">menu</span>
+    </button>
+    
     <!-- Welcome Section -->
-    <div class="mb-12">
-        <h1 class="text-4xl font-black text-primary mb-2">Bem-vindo ao ENGECON</h1>
-        <p class="text-on-surface/60 text-lg">Sistema de Gestão de Reformas Prediais</p>
+    <div class="mb-8 md:mb-12 mt-4 md:mt-0">
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-black text-primary mb-1 md:mb-2">Bem-vindo ao ENGECON</h1>
+        <p class="text-on-surface/60 text-base md:text-lg">Sistema de Gestão de Reformas Prediais</p>
     </div>
 
     <!-- Main Cards Grid -->
-    <div class="grid grid-cols-12 gap-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
         <!-- Dashboard Card -->
-        <a href="resumo_geral_cadastro_de_equipe_nos_boxes/code.html" class="col-span-12 md:col-span-4 bg-surface-container-low rounded-xl p-8 hover:shadow-lg transition-all group cursor-pointer border border-outline/10 hover:border-secondary/30">
+        <a href="resumo_geral_cadastro_de_equipe_nos_boxes/code.html" class="bg-surface-container-low rounded-xl p-6 md:p-8 hover:shadow-lg transition-all group cursor-pointer border border-outline/10 hover:border-secondary/30">
             <div class="mb-4 p-3 bg-secondary-container rounded-lg w-fit group-hover:scale-110 transition-transform">
                 <span class="material-symbols-outlined text-white text-2xl">dashboard</span>
             </div>
-            <h3 class="text-xl font-bold mb-2">Resumo Geral</h3>
+            <h3 class="text-lg md:text-xl font-bold mb-2">Resumo Geral</h3>
             <p class="text-on-surface/60 text-sm">Visualize o panorama completo de todas as operações</p>
         </a>
 
         <!-- Movimentações Card -->
-        <a href="movimenta_es_vers_o_final_limpa/code.html" class="col-span-12 md:col-span-4 bg-surface-container-low rounded-xl p-8 hover:shadow-lg transition-all group cursor-pointer border border-outline/10 hover:border-secondary/30">
+        <a href="movimenta_es_vers_o_final_limpa/code.html" class="bg-surface-container-low rounded-xl p-6 md:p-8 hover:shadow-lg transition-all group cursor-pointer border border-outline/10 hover:border-secondary/30">
             <div class="mb-4 p-3 bg-secondary-container rounded-lg w-fit group-hover:scale-110 transition-transform">
                 <span class="material-symbols-outlined text-white text-2xl">swap_horiz</span>
             </div>
-            <h3 class="text-xl font-bold mb-2">Movimentações</h3>
+            <h3 class="text-lg md:text-xl font-bold mb-2">Movimentações</h3>
             <p class="text-on-surface/60 text-sm">Acompanhe todas as movimentações do sistema</p>
         </a>
 
         <!-- Estoque Card -->
-        <a href="controle_de_estoque_financeiro_com_coluna_editor/code.html" class="col-span-12 md:col-span-4 bg-surface-container-low rounded-xl p-8 hover:shadow-lg transition-all group cursor-pointer border border-outline/10 hover:border-secondary/30">
+        <a href="controle_de_estoque_financeiro_com_coluna_editor/code.html" class="bg-surface-container-low rounded-xl p-6 md:p-8 hover:shadow-lg transition-all group cursor-pointer border border-outline/10 hover:border-secondary/30">
             <div class="mb-4 p-3 bg-secondary-container rounded-lg w-fit group-hover:scale-110 transition-transform">
                 <span class="material-symbols-outlined text-white text-2xl">inventory_2</span>
             </div>
-            <h3 class="text-xl font-bold mb-2">Controle de Estoque</h3>
+            <h3 class="text-lg md:text-xl font-bold mb-2">Controle de Estoque</h3>
             <p class="text-on-surface/60 text-sm">Gerencie o inventário e financeiro de materiais</p>
         </a>
 
         <!-- Obras Card -->
-        <a href="relat_rio_de_obra_menu_lateral_refinado_final_v2/code.html" class="col-span-12 md:col-span-4 bg-surface-container-low rounded-xl p-8 hover:shadow-lg transition-all group cursor-pointer border border-outline/10 hover:border-secondary/30">
+        <a href="relat_rio_de_obra_menu_lateral_refinado_final_v2/code.html" class="bg-surface-container-low rounded-xl p-6 md:p-8 hover:shadow-lg transition-all group cursor-pointer border border-outline/10 hover:border-secondary/30">
             <div class="mb-4 p-3 bg-secondary-container rounded-lg w-fit group-hover:scale-110 transition-transform">
                 <span class="material-symbols-outlined text-white text-2xl">domain</span>
             </div>
-            <h3 class="text-xl font-bold mb-2">Relatório de Obras</h3>
+            <h3 class="text-lg md:text-xl font-bold mb-2">Relatório de Obras</h3>
             <p class="text-on-surface/60 text-sm">Acompanhe o status de todas as obras</p>
         </a>
 
         <!-- Usuários Card -->
-        <a href="registro_de_equipe_cor_de_indicador_ajustada/code.html" class="col-span-12 md:col-span-4 bg-surface-container-low rounded-xl p-8 hover:shadow-lg transition-all group cursor-pointer border border-outline/10 hover:border-secondary/30">
+        <a href="registro_de_equipe_cor_de_indicador_ajustada/code.html" class="bg-surface-container-low rounded-xl p-6 md:p-8 hover:shadow-lg transition-all group cursor-pointer border border-outline/10 hover:border-secondary/30">
             <div class="mb-4 p-3 bg-secondary-container rounded-lg w-fit group-hover:scale-110 transition-transform">
                 <span class="material-symbols-outlined text-white text-2xl">group</span>
             </div>
-            <h3 class="text-xl font-bold mb-2">Registro de Equipe</h3>
+            <h3 class="text-lg md:text-xl font-bold mb-2">Registro de Equipe</h3>
             <p class="text-on-surface/60 text-sm">Gerencie usuários e equipes do sistema</p>
         </a>
 
         <!-- Colaboradores Card -->
-        <a href="listagem_de_colaboradores_rolagem_ajustada_v2/code.html" class="col-span-12 md:col-span-4 bg-surface-container-low rounded-xl p-8 hover:shadow-lg transition-all group cursor-pointer border border-outline/10 hover:border-secondary/30">
+        <a href="listagem_de_colaboradores_rolagem_ajustada_v2/code.html" class="bg-surface-container-low rounded-xl p-6 md:p-8 hover:shadow-lg transition-all group cursor-pointer border border-outline/10 hover:border-secondary/30">
             <div class="mb-4 p-3 bg-secondary-container rounded-lg w-fit group-hover:scale-110 transition-transform">
                 <span class="material-symbols-outlined text-white text-2xl">people</span>
             </div>
-            <h3 class="text-xl font-bold mb-2">Colaboradores</h3>
+            <h3 class="text-lg md:text-xl font-bold mb-2">Colaboradores</h3>
             <p class="text-on-surface/60 text-sm">Lista completa de colaboradores com rolagem ajustada</p>
         </a>
 
         <!-- Configurações Card -->
-        <a href="configura_es_sincroniza_o_visual_absoluta/code.html" class="col-span-12 md:col-span-4 bg-surface-container-low rounded-xl p-8 hover:shadow-lg transition-all group cursor-pointer border border-outline/10 hover:border-secondary/30">
+        <a href="configura_es_sincroniza_o_visual_absoluta/code.html" class="bg-surface-container-low rounded-xl p-6 md:p-8 hover:shadow-lg transition-all group cursor-pointer border border-outline/10 hover:border-secondary/30">
             <div class="mb-4 p-3 bg-secondary-container rounded-lg w-fit group-hover:scale-110 transition-transform">
                 <span class="material-symbols-outlined text-white text-2xl">settings</span>
             </div>
-            <h3 class="text-xl font-bold mb-2">Configurações</h3>
+            <h3 class="text-lg md:text-xl font-bold mb-2">Configurações</h3>
             <p class="text-on-surface/60 text-sm">Sincronize e ajuste as configurações do sistema</p>
         </a>
 
         <!-- Login Card -->
-        <a href="portal_de_login_engecon_vers_o_final_limpa/code.html" class="col-span-12 md:col-span-4 bg-surface-container-low rounded-xl p-8 hover:shadow-lg transition-all group cursor-pointer border border-outline/10 hover:border-secondary/30">
+        <a href="portal_de_login_engecon_vers_o_final_limpa/code.html" class="bg-surface-container-low rounded-xl p-6 md:p-8 hover:shadow-lg transition-all group cursor-pointer border border-outline/10 hover:border-secondary/30">
             <div class="mb-4 p-3 bg-primary rounded-lg w-fit group-hover:scale-110 transition-transform">
                 <span class="material-symbols-outlined text-white text-2xl">login</span>
             </div>
-            <h3 class="text-xl font-bold mb-2">Portal de Login</h3>
+            <h3 class="text-lg md:text-xl font-bold mb-2">Portal de Login</h3>
             <p class="text-on-surface/60 text-sm">Acesse o portal de login do ENGECON</p>
         </a>
     </div>
 </main>
+
+<script>
+    // Mobile menu toggle
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const sidebar = document.getElementById('sidebar');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+    function toggleSidebar() {
+        sidebar.classList.toggle('open');
+        sidebarOverlay.classList.toggle('show');
+    }
+
+    function closeSidebar() {
+        sidebar.classList.remove('open');
+        sidebarOverlay.classList.remove('show');
+    }
+
+    hamburgerBtn.addEventListener('click', toggleSidebar);
+    sidebarOverlay.addEventListener('click', closeSidebar);
+
+    // Fechar sidebar quando clicar em um link
+    document.querySelectorAll('#sidebar a').forEach(link => {
+        link.addEventListener('click', closeSidebar);
+    });
+
+    // Fechar sidebar com ESC
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeSidebar();
+        }
+    });
+
+    // Prevenir que o sidebar feche quando clicar dentro dele
+    sidebar.addEventListener('click', (e) => {
+        if (e.target === sidebar) {
+            closeSidebar();
+        }
+    });
+</script>
 
 </body>
 </html>
